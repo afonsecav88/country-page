@@ -16,5 +16,6 @@ body {
   align-items: center;
   background-image: url('/src/assets/hero-image-wr.jpg');
   background-size: cover;
+  background-position: center;
   min-height: 16rem;
 }
