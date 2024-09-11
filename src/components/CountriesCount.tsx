@@ -1,3 +1,3 @@
 export const CountriesCount = () => {
-  return <div>CountriesCount</div>;
+  return <p>Found 234 countries </p>;
 };
