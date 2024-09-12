@@ -1,8 +1,14 @@
-export const CountryList = () => {
+import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
+
+interface CountryListProp {
+  countries: CountriesInfo[];
+}
+
+export const CountryList = ({ countries }: CountryListProp) => {
   return (
-    <table className="flex flex-col gap-2 table-fixed">
+    <table className="flex flex-col gap-2 table-auto">
       <thead>
-        <tr className="flex gap-5 justify-center text-xs text-[#6C727F]">
+        <tr className="p-4 text-center text-xs text-[#6C727F]">
           <td>Flag</td>
           <td>Name</td>
           <td>Population</td>
@@ -11,13 +17,17 @@ export const CountryList = () => {
         </tr>
       </thead>
       <tbody>
-        <tr className="flex gap-5 text-sm min-w-full">
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>Hola</td>
-        </tr>
+        {countries.map(({ flags, name, population, area, region }) => (
+          <tr key={name.common} className="text-sm min-w-full">
+            <td className="p-4 text-center">
+              <img src={flags.svg} alt={name.common} className="w-10" h-10 />
+            </td>
+            <td>{name.common}</td>
+            <td>{population}</td>
+            <td>{area}</td>
+            <td>{region}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

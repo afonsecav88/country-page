@@ -5,13 +5,28 @@ import { StatusFilter } from './StatusFilter';
 import { CountryList } from './CountryList';
 import { SortByfilter } from './SortByFilter';
 import { CountryService } from '../services/country.service';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
 
 export const ContainerCard = () => {
+  const [countries, setCountries] = useState<CountriesInfo[]>([]);
+
+  const paginateCountries = (countries: CountriesInfo[]) => {
+    const currentPage = 1;
+    const startIndex = (currentPage - 1) * 10;
+    const endIndex = startIndex + 10;
+    const paginatedCountries = countries.slice(startIndex, endIndex);
+    return paginatedCountries;
+  };
+
   useEffect(() => {
-    CountryService.getCountiesInfo().then((resp) => {
-      console.log(resp);
-    });
+    CountryService.getCountiesInfo()
+      .then((resp) => {
+        if (!resp) return;
+        const paginatedCountries = paginateCountries(resp);
+        setCountries(paginatedCountries);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -33,7 +48,7 @@ export const ContainerCard = () => {
           <StatusFilter />
         </div>
         <div className="p-6">
-          <CountryList />
+          <CountryList countries={countries} />
         </div>
       </article>
     </section>
