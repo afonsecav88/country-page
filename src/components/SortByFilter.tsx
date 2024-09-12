@@ -4,7 +4,7 @@ export const SortByfilter = () => {
       <p className="text-xs text-[#D2D5DA] pb-2">Sort by</p>
       <select
         name="select"
-        className="min-w-12 bg-[#1C1D1F] border-[#282B30] border-2 focus:outline-none p-2 rounded-md mb-6 text-sm">
+        className="min-w-12 bg-[#1C1D1F] border-[#282B30] border-2 focus:outline-none p-2 rounded-md mb-6 text-sm cursor-pointer">
         <option value="population" defaultValue={'Population'}>
           Population
         </option>
