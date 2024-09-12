@@ -7,9 +7,9 @@ import { StatusFilter } from './StatusFilter';
 export const ContainerCard = () => {
   return (
     <section
-      className="grid bg-[#1C1D1F] text-[#D2D5DA] min-w-[90vw] max-w-[1280px] min-h-screen absolute top-48 rounded-lg
+      className="flex flex-col bg-[#1C1D1F] text-[#D2D5DA] min-w-[90vw] max-w-[1280px] min-h-screen absolute top-48 rounded-lg
      border-[#282B30] border ">
-      <article className="flex justify-between items-center p-6">
+      <article className="flex justify-between p-6 max-h-16 items-center">
         <div className="text-left">
           <CountriesCount />
         </div>
@@ -17,13 +17,13 @@ export const ContainerCard = () => {
           <SearchByFilter />
         </div>
       </article>
-      <article className="flex flex-col sm:flex-row p-6">
-        <div className="min-w-56 min-h-[60vh] border-sky-100 border p-4 mr-6">
+      <article className="flex flex-col sm:flex-row ">
+        <div className="min-w-full sm:min-w-72 p-6 ">
           <SortByfilter />
           <RegionTags />
           <StatusFilter />
         </div>
-        <div>
+        <div className="p-6">
           <p>gato</p>
         </div>
       </article>
