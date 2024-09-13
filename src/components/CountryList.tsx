@@ -23,7 +23,11 @@ export const CountryList = ({ countries }: CountryListProp) => {
             key={name.common}
             className="table-row text-base  min-w-full text-[#D2D5DA] xl:min-w-[60vw] ">
             <td className="px-4 pt-4 ">
-              <img src={flags.png} alt={name.common} className="w-14 h-8" />
+              <img
+                src={flags.png}
+                alt={name.common}
+                className="w-12 h-8 rounded-sm"
+              />
             </td>
             <td className="px-7 pt-4">{name.common}</td>
             <td className="px-10 pt-4">{population}</td>
