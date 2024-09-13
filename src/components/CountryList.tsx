@@ -8,7 +8,7 @@ export const CountryList = ({ countries }: CountryListProp) => {
   return (
     <table className="table-fixed ">
       <thead>
-        <tr className="text-xs text-[#6C727F] font-bold">
+        <tr className="text-xs text-[#6C727F] font-bold xl:min-w-[60vw]">
           <td className="px-4 pb-5">Flag</td>
           <td className="px-7 pb-5">Name</td>
           <td className="px-10 pb-5">Population</td>
@@ -21,7 +21,7 @@ export const CountryList = ({ countries }: CountryListProp) => {
         {countries.map(({ flags, name, population, area, region }) => (
           <tr
             key={name.common}
-            className="table-row text-base  min-w-full text-[#D2D5DA]  ">
+            className="table-row text-base  min-w-full text-[#D2D5DA] xl:min-w-[60vw] ">
             <td className="px-4 pt-4 ">
               <img src={flags.png} alt={name.common} className="w-14 h-8" />
             </td>
