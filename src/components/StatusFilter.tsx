@@ -8,7 +8,7 @@ export const StatusFilter = () => {
 
   return (
     <fieldset className="flex flex-col min-w-72 pb-3">
-      <legend className="text-xs text-[#D2D5DA] pb-2">Status</legend>
+      <legend className="text-xs text-[#6C727F] font-bold pb-2">Status</legend>
       <div className="inline-flex mb-2">
         <input
           type="checkbox"
