@@ -1,4 +1,4 @@
-import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
+import type { CountriesInfo } from '../interfaces/ContriesInfo.interface';
 
 export class CountryService {
   public static readonly getCountiesInfo = async (): Promise<
