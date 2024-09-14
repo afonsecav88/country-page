@@ -11,7 +11,6 @@ export const ContainerCard = () => {
   const { countries } = useGetCountries();
   const { paginatedCountries, currentPage, setCurrentPage } =
     usePaginateCountries(countries);
-  console.log(countries);
   return (
     <section
       className="flex flex-col bg-[#1C1D1F] text-[#D2D5DA] min-w-[90vw] max-w-[1280px] min-h-screen absolute top-48 rounded-lg

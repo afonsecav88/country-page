@@ -12,6 +12,16 @@ export const CountryList = ({
   currentPage,
   setCurrentPage,
 }: CountryListProp) => {
+  const handleClickPreview = () => {
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+    console.log('hice clic handleClickNext');
+  };
+  const handleClickNext = () => {
+    if (currentPage === 25) return;
+    setCurrentPage(currentPage + 1);
+    console.log('hice click handleClickNext');
+  };
   return (
     <>
       <table className="table-fixed ">
@@ -46,22 +56,35 @@ export const CountryList = ({
         </tbody>
       </table>
       <span className="flex gap-4 justify-center items-center p-1 mt-4  rounded-md text-sm font-semibold text-[#D2D5DA] ">
-        <button className="bg-[#282B30] px-3 py-2 rounded-md inline-flex cursor-pointer hover:bg-[#4E80EE] ">
+        <button
+          className={`bg-[#282B30] px-3 py-2 rounded-md inline-flex justify-center w-36 ${
+            currentPage === 1
+              ? 'cursor-auto hover:bg-transparent bg-transparent'
+              : 'cursor-pointer hover:bg-[#4E80EE]'
+          }`}
+          onClick={handleClickPreview}>
+          <img
+            src="src/assets/Expand_down.svg"
+            alt="preview"
+            className="rotate-90 w-5 mr-1 "
+          />
+          Preview Page
+        </button>
+        <p className="px-4 text-base">{currentPage}</p>
+        <button
+          className={`bg-[#282B30] px-3 py-2 rounded-md inline-flex justify-center w-36 ${
+            currentPage === 25
+              ? 'cursor-auto hover:bg-transparent bg-transparent'
+              : 'cursor-pointer hover:bg-[#4E80EE]'
+          }`}
+          disabled={currentPage === 25}
+          onClick={handleClickNext}>
           Next Page{' '}
           <img
             src="src/assets/Expand_down.svg"
             alt="preview"
-            className="-rotate-90 w-5 ml-2 "
+            className="-rotate-90 w-5 ml-1"
           />
-        </button>
-        <p className="px-4 text-base">{currentPage}</p>
-        <button className="bg-[#282B30] px-3 py-2 rounded-md inline-flex cursor-pointer hover:bg-[#4E80EE]">
-          <img
-            src="src/assets/Expand_down.svg"
-            alt="preview"
-            className="rotate-90 w-5 mr-2 "
-          />
-          Preview Page
         </button>
       </span>
     </>
