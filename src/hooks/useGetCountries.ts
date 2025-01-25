@@ -11,7 +11,7 @@ export const useGetCountries = (sortCountries: string) => {
         setCountries(resp);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [sortCountries]);
 
   return { countries };
 };
