@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# Country Page - WorldRanks ,creada con React, Typescript, y Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Esta app es un desafio frontend: https://devchallenges.io/challenge/country-page
 
-Currently, two official plugins are available:
+## Aplicación que consume la data:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://restcountries.com/v3.1/all?sort=population
 
-## Expanding the ESLint configuration
+https://restcountries.com/v3.1/alpha/{countryCode}
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Historias de Usuario
 
-- Configure the top-level `parserOptions` property like this:
+✅ Create a country ranking page that matches the given design.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+✅ By default, users can see a list of all countries sorted by population.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+✅ Users can choose to sort by name alphabetical order or population or area (km²).
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+✅ Users can choose to filter by multiple regions, the regions can be Americas, Antarctic, Africa, Asia, Europe, or Oceania.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+✅ Users can choose to filter countries that are members of the United Nations.
+
+✅ Users can choose to filter countries that are independent.
+
+✅ Users can filter/search for countries by their names, regions or subregions.
+
+✅ Users can see the total number of countries.
+
+✅ Users can select a country and see more details on a country page.
+
+✅ On the country page, users can see info like population, area, capital.
+
+✅ On the country page, users can see the neighboring countries.
+
+✅ On the country page, when users select a neighboring country, it should redirect to the according country page.
+
+✅ "[Optional] The country list is paginated".
+
+✅ Deploy the solution and submit Repository URL and Demo URL.
+
+### Levantar la aplicación en desarrollo 🚀
+
+1. Para instalar dependencias de desarrollo `npm install`
+2. Para levantar el server de desarrollo `npm run dev`
+3. Para hacer el build de la app `npm run build`
+
+> NOTA: La app esta desplegada en este URL :
