@@ -5,7 +5,7 @@ export const StatusFilter = () => {
   const [checkIndependient, setCheckIndependient] = useState(false);
 
   return (
-    <fieldset className="flex flex-col min-w-72 pb-3">
+    <fieldset className="flex flex-col min-w-72 pb-8">
       <legend className="text-xs text-[#6C727F] font-bold pb-2">Status</legend>
       <div className="inline-flex mb-2">
         <input

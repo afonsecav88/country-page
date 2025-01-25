@@ -13,14 +13,14 @@ export const ContainerCard = () => {
     usePaginateCountries(countries);
   return (
     <section
-      className="grid grid-flow-col grid-rows-[4vw_minmax(20rem,auto)] p-2 sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-[95vw] md:w-[80vw]  lg:w-[90vw] max-w-[1280px] absolute top-48 rounded-lg
+      className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] p-2 sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-[94vw] md:w-[96vw]  lg:w-[90vw] xl:w-[78vw] absolute top-48 rounded-lg
      border-[#282B30] border pb-8">
-      <article className="inline-grid grid-flow-col justify-between px-8">
+      <article className="inline-grid grid-flow-row grid-cols-1 md:grid-flow-col justify-between px-8 gap-4">
         <CountriesCount numberOfCountries={countries.length} />
         <SearchByFilter />
       </article>
 
-      <article className="inline-grid grid-flow-col justify-between px-8 ">
+      <article className="inline-grid grid-flow-row lg:grid-flow-col justify-between px-8 ">
         <span>
           <SortByFilter />
           <RegionTags />
