@@ -4,8 +4,6 @@ export const StatusFilter = () => {
   const [checkMember, setCheckMember] = useState(false);
   const [checkIndependient, setCheckIndependient] = useState(false);
 
-  console.log(checkMember);
-
   return (
     <fieldset className="flex flex-col min-w-72 pb-3">
       <legend className="text-xs text-[#6C727F] font-bold pb-2">Status</legend>
