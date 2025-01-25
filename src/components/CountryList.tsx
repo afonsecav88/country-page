@@ -15,7 +15,7 @@ export const CountryList = ({
 }: CountryListProp) => {
   return (
     <div>
-      <table className="table-fixed h-[650px] w-full  lg:w-[55vw] xl:w-[50vw]">
+      <table className="table-fixed h-[650px] w-full lg:w-[55vw]">
         <thead>
           <tr className="text-xs text-[#6C727F] font-bold">
             <td className="min-w-20   pb-5">Flag</td>
