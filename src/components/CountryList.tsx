@@ -15,16 +15,16 @@ export const CountryList = ({
 }: CountryListProp) => {
   return (
     <>
-      <table className="table-fixed h-[650px]  lg:flex-row w-full  sm:w-full lg:w-[50vw]">
+      <table className="table-fixed h-[650px] lg:flex-row w-full lg:w-[50vw]">
         <thead>
           <tr className="text-xs text-[#6C727F] font-bold">
             <td className="min-w-20   pb-5">Flag</td>
             <td className="w-40 min-w-48 min-h-12 pb-5">Name</td>
             <td className="min-w-20 pb-5">Population</td>
             <td className="min-w-20 pb-5">Area(km²)</td>
-            <td className="min-w-28 pb-5">Region</td>
+            <td className="min-w-32 pb-5">Region</td>
           </tr>
-          <tr className="border-[#282B30] border-2" />
+          <tr className="border-[#282B30] border-2 lg:flex-row" />
         </thead>
         <tbody>
           {countries.map(({ flags, name, population, area, region }) => (
@@ -41,7 +41,7 @@ export const CountryList = ({
               <td className="w-48 min-w-48 min-h-12  pt-4">{name.common}</td>
               <td className="min-w-20 pt-4">{population}</td>
               <td className="min-w-20 pt-4">{area}</td>
-              <td className="min-w-28 pt-4">{region}</td>
+              <td className="min-w-32 pt-4">{region}</td>
             </tr>
           ))}
         </tbody>

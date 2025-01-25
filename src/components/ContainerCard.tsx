@@ -3,7 +3,7 @@ import { RegionTags } from './RegionTags';
 import { SearchByFilter } from './SearchByFilter';
 import { StatusFilter } from './StatusFilter';
 import { CountryList } from './CountryList';
-import { SortByfilter } from './SortByFilter';
+import { SortByFilter } from './SortByFilter';
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
 import { useGetCountries } from '../hooks/useGetCountries';
 
@@ -13,7 +13,7 @@ export const ContainerCard = () => {
     usePaginateCountries(countries);
   return (
     <section
-      className="grid grid-flow-row justify-center p-6 bg-[#1C1D1F] text-[#D2D5DA] w-[95vw] md:w-[80vw]  lg:w-[90vw] max-w-[1280px] absolute top-48 rounded-lg
+      className="grid grid-flow-row grid-cols-1 p-2 sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-[95vw] md:w-[80vw]  lg:w-[90vw] max-w-[1280px] absolute top-48 rounded-lg
      border-[#282B30] border pb-8">
       <article className="inline-flex flex-col p-0 sm:px-20 sm:pb-6 sm:flex-row  justify-between  max-h-16 sm:items-center">
         <div className="flex text-left mb-6 sm:mb-0">
@@ -23,9 +23,9 @@ export const ContainerCard = () => {
           <SearchByFilter />
         </div>
       </article>
-      <article className="flex flex-col p-0 sm:px-20 md:align-middle  lg:flex-row w-[90vw] md:w-[80vw]">
+      <article className="flex flex-col p-0 lg:px-10  lg:flex-row w-[90vw] md:w-[80vw]">
         <div className="flex flex-col w-full sm:w-full lg:w-[50vw] mt-6 pt-6 sm:mt-0">
-          <SortByfilter />
+          <SortByFilter />
           <RegionTags />
           <StatusFilter />
         </div>

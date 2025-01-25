@@ -1,4 +1,4 @@
-export const SortByfilter = () => {
+export const SortByFilter = () => {
   return (
     <div className="flex flex-col min-w-72 pb-2">
       <p className="text-xs text-[#6C727F] font-bold pb-2 ">Sort by</p>
