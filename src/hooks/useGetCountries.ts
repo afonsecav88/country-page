@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
 import { CountryService } from '../services/country.service';
 
-export const useGetCountries = () => {
+export const useGetCountries = (sortCountries: string) => {
   const [countries, setCountries] = useState<CountriesInfo[]>([]);
   useEffect(() => {
-    CountryService.getCountiesInfo()
+    CountryService.getCountiesInfo(sortCountries)
       .then((resp) => {
         if (!resp) return;
         setCountries(resp);

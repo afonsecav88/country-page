@@ -6,11 +6,14 @@ import { CountryList } from './CountryList';
 import { SortByFilter } from './SortByFilter';
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
 import { useGetCountries } from '../hooks/useGetCountries';
+import { useState } from 'react';
 
 export const ContainerCard = () => {
-  const { countries } = useGetCountries();
+  const [sortCountries, setSortCountries] = useState<string>('population');
+  const { countries } = useGetCountries(sortCountries);
   const { paginatedCountries, currentPage, setCurrentPage } =
     usePaginateCountries(countries);
+
   return (
     <section
       className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5 p-2 sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-[94vw] md:w-[96vw]  lg:w-[90vw] xl:w-[83vw] absolute top-48 rounded-lg
