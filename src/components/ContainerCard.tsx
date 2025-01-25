@@ -13,29 +13,24 @@ export const ContainerCard = () => {
     usePaginateCountries(countries);
   return (
     <section
-      className="grid grid-flow-row grid-cols-1 p-2 sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-[95vw] md:w-[80vw]  lg:w-[90vw] max-w-[1280px] absolute top-48 rounded-lg
+      className="grid grid-flow-col grid-rows-[4vw_minmax(20rem,auto)] p-2 sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-[95vw] md:w-[80vw]  lg:w-[90vw] max-w-[1280px] absolute top-48 rounded-lg
      border-[#282B30] border pb-8">
-      <article className="inline-flex flex-col p-0 sm:px-20 sm:pb-6 sm:flex-row  justify-between  max-h-16 sm:items-center">
-        <div className="flex text-left mb-6 sm:mb-0">
-          <CountriesCount numberOfCountries={countries.length} />
-        </div>
-        <div className="flex text-left mb-6 sm:mb-0 sm:text-right">
-          <SearchByFilter />
-        </div>
+      <article className="inline-grid grid-flow-col justify-between px-8">
+        <CountriesCount numberOfCountries={countries.length} />
+        <SearchByFilter />
       </article>
-      <article className="flex flex-col p-0 lg:px-10  lg:flex-row w-[90vw] md:w-[80vw]">
-        <div className="flex flex-col w-full sm:w-full lg:w-[50vw] mt-6 pt-6 sm:mt-0">
+
+      <article className="inline-grid grid-flow-col justify-between px-8 ">
+        <span>
           <SortByFilter />
           <RegionTags />
           <StatusFilter />
-        </div>
-        <div className="pr-8 pl-0 sm:p-6 ">
-          <CountryList
-            countries={paginatedCountries}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        </div>
+        </span>
+        <CountryList
+          countries={paginatedCountries}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </article>
     </section>
   );

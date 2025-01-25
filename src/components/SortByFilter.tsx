@@ -1,6 +1,6 @@
 export const SortByFilter = () => {
   return (
-    <div className="flex flex-col min-w-72 pb-2">
+    <div className=" min-w-72 pb-2 xl:w-80">
       <p className="text-xs text-[#6C727F] font-bold pb-2 ">Sort by</p>
       <select
         name="select"

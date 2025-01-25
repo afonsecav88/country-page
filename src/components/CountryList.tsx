@@ -14,8 +14,8 @@ export const CountryList = ({
   setCurrentPage,
 }: CountryListProp) => {
   return (
-    <>
-      <table className="table-fixed h-[650px] lg:flex-row w-full lg:w-[50vw]">
+    <div>
+      <table className="table-fixed h-[650px] w-full ">
         <thead>
           <tr className="text-xs text-[#6C727F] font-bold">
             <td className="min-w-20   pb-5">Flag</td>
@@ -50,6 +50,6 @@ export const CountryList = ({
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
-    </>
+    </div>
   );
 };
