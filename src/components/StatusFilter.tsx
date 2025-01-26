@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 
 type StatusFilterProps = {
@@ -12,6 +12,15 @@ export const StatusFilter = ({
 }: StatusFilterProps) => {
   const [checkMember, setCheckMember] = useState(false);
   const [checkIndependient, setCheckIndependient] = useState(false);
+
+  useEffect(() => {
+    console.log('checkMember', checkMember);
+    if (checkMember) {
+      setCountries(
+        countries.filter((country) => country.unMember === checkMember)
+      );
+    }
+  }, [checkMember]);
 
   return (
     <fieldset className="flex flex-col min-w-72 pb-8">
