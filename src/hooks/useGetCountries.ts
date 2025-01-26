@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
+import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { CountryService } from '../services/country.service';
 
-export const useGetCountries = (selectedSort: string) => {
+export const useGetCountries = () => {
   const [countries, setCountries] = useState<CountriesInfo[]>([]);
   useEffect(() => {
-    CountryService.getCountiesInfo(selectedSort)
+    CountryService.getCountiesInfo()
       .then((resp) => {
         if (!resp) return;
         setCountries(resp);
       })
       .catch((err) => console.log(err));
-  }, [selectedSort]);
+  }, []);
 
-  return { countries };
+  return { countries, setCountries };
 };

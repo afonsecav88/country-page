@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
+import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { PaginateButtons } from './PaginateButtons';
 
 interface CountryListProp {

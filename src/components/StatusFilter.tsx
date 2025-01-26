@@ -1,6 +1,15 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
+import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 
-export const StatusFilter = () => {
+type StatusFilterProps = {
+  setCountries: Dispatch<SetStateAction<CountriesInfo[]>>;
+  countries: CountriesInfo[];
+};
+
+export const StatusFilter = ({
+  setCountries,
+  countries,
+}: StatusFilterProps) => {
   const [checkMember, setCheckMember] = useState(false);
   const [checkIndependient, setCheckIndependient] = useState(false);
 

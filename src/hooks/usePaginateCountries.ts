@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CountriesInfo } from '../interfaces/ContriesInfo.interface';
+import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 
 export const usePaginateCountries = (countries: CountriesInfo[]) => {
   const [currentPage, setCurrentPage] = useState<number>(1);

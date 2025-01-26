@@ -1,19 +1,15 @@
 import { CountriesCount } from './CountriesCount';
-import { RegionTags } from './RegionTags';
 import { SearchByFilter } from './SearchByFilter';
 import { StatusFilter } from './StatusFilter';
 import { CountryList } from './CountryList';
 import { SortByFilter } from './SortByFilter';
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
 import { useGetCountries } from '../hooks/useGetCountries';
-import { useState } from 'react';
 
 export const ContainerCard = () => {
-  const [sortCountries, setSortCountries] = useState<string>('population');
-  const { countries } = useGetCountries(sortCountries);
+  const { countries, setCountries } = useGetCountries();
   const { paginatedCountries, currentPage, setCurrentPage } =
     usePaginateCountries(countries);
-
 
   return (
     <section
@@ -26,9 +22,9 @@ export const ContainerCard = () => {
 
       <article className="inline-grid grid-flow-row lg:grid-flow-col justify-between px-8 ">
         <span>
-          <SortByFilter setSortCountries={setSortCountries} />
-          <RegionTags setSortCountries={setSortCountries} />
-          <StatusFilter />
+          <SortByFilter setCountries={setCountries} countries={countries} />
+          {/* <RegionTags setSortCountries={setSortCountries} /> */}
+          <StatusFilter setCountries={setCountries} countries={countries} />
         </span>
         <CountryList
           countries={paginatedCountries}
