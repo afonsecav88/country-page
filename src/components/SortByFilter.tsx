@@ -5,9 +5,7 @@ type SortByFilterProps = {
 };
 
 export const SortByFilter = ({ setSortCountries }: SortByFilterProps) => {
-  const [filterBy, setFilterBy] = useState<string>('population');
-
-  console.log('filterBy', filterBy);
+  const [, setFilterBy] = useState<string>('');
 
   return (
     <div className="pb-2">

@@ -7,7 +7,7 @@ export class CountryService {
     sort?: string
   ): Promise<CountriesInfo[] | undefined> => {
     const urlApiCountries = `${apiCountriesURL}/all?fields=name,flags,population,area,region,languages,currencies,borders,subregion,continents`;
-    console.log('urlApiCountries', urlApiCountries);
+
     try {
       const data = await fetch(urlApiCountries);
       const resp: CountriesInfo[] = await data.json();
