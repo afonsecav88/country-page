@@ -19,7 +19,7 @@ export const usePaginateCountries = (countries: CountriesInfo[]) => {
 
   useEffect(() => {
     paginatedAllCountries();
-  }, [countries, currentPage]);
+  }, [countries, currentPage, lastPage]);
 
   return { paginatedCountries, setCurrentPage, currentPage, lastPage };
 };

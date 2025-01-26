@@ -15,34 +15,29 @@ export const StatusFilter = ({
   const [checkMember, setCheckMember] = useState(false);
   const [checkIndependent, setCheckIndependent] = useState(false);
 
-  const handleChangeCheckMember = () => {
-    if (checkMember) {
-      setCountries(
-        [...countries].filter((country) => country.unMember === true)
+  const filterCountries = () => {
+    if (checkMember && checkIndependent) {
+      const members = countries.filter((country) => country.unMember === true);
+      const independent = countries.filter(
+        (country) => country.unMember === false
       );
+      console.log('members', members);
+      console.log('independent', independent);
+      setCountries([...members, ...independent]);
+    } else if (checkMember) {
+      setCountries(countries.filter((country) => country.unMember === true));
+    } else if (checkIndependent) {
+      setCountries(countries.filter((country) => country.unMember === false));
     } else {
-      getAllCountries().then((countries) => setCountries(countries!));
-    }
-  };
-
-  const handleChangeCheckIndependent = () => {
-    console.log('checkIndependent', checkIndependent);
-    if (checkIndependent) {
-      setCountries(
-        [...countries].filter((country) => country.unMember === false)
+      getAllCountries().then((allCountries) =>
+        setCountries(allCountries || [])
       );
-    } else {
-      getAllCountries().then((countries) => setCountries(countries!));
     }
   };
 
   useEffect(() => {
-    handleChangeCheckMember();
-  }, [checkMember]);
-
-  useEffect(() => {
-    handleChangeCheckIndependent();
-  }, [checkIndependent]);
+    filterCountries();
+  }, [checkMember, checkIndependent]);
 
   return (
     <fieldset className="flex flex-col min-w-72 pb-8">
