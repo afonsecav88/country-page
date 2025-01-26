@@ -4,14 +4,20 @@ import { CountryService } from '../services/country.service';
 
 export const useGetCountries = () => {
   const [countries, setCountries] = useState<CountriesInfo[]>([]);
+
+  const getAllCountries = async () => {
+    try {
+      const countries = await CountryService.getCountiesInfo();
+      setCountries(countries || []);
+      return countries || [];
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    CountryService.getCountiesInfo()
-      .then((resp) => {
-        if (!resp) return;
-        setCountries(resp);
-      })
-      .catch((err) => console.log(err));
+    getAllCountries();
   }, []);
 
-  return { countries, setCountries };
+  return { countries, setCountries, getAllCountries };
 };

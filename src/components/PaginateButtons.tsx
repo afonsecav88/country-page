@@ -2,11 +2,13 @@ import { Dispatch } from 'react';
 
 interface PaginateButtonsProps {
   currentPage: number;
+  lastPage: number;
   setCurrentPage: Dispatch<React.SetStateAction<number>>;
 }
 
 export const PaginateButtons = ({
   currentPage,
+  lastPage,
   setCurrentPage,
 }: PaginateButtonsProps) => {
   const handleClickPreview = () => {
@@ -14,7 +16,7 @@ export const PaginateButtons = ({
     setCurrentPage(currentPage - 1);
   };
   const handleClickNext = () => {
-    if (currentPage === 25) return;
+    if (currentPage === lastPage) return;
     setCurrentPage(currentPage + 1);
   };
   return (
@@ -36,11 +38,11 @@ export const PaginateButtons = ({
       <p className="px-4 text-base w-12 ">{currentPage}</p>
       <button
         className={`bg-[#282B30] px-3 py-2 rounded-md inline-flex justify-center w-36 ${
-          currentPage === 25
+          currentPage === lastPage
             ? 'cursor-auto hover:bg-transparent bg-transparent'
             : 'cursor-pointer hover:bg-[#4E80EE]'
         }`}
-        disabled={currentPage === 25}
+        disabled={currentPage === lastPage}
         onClick={handleClickNext}>
         Next Page{' '}
         <img

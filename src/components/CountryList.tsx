@@ -5,12 +5,14 @@ import { PaginateButtons } from './PaginateButtons';
 interface CountryListProp {
   countries: CountriesInfo[];
   currentPage: number;
+  lastPage: number;
   setCurrentPage: Dispatch<React.SetStateAction<number>>;
 }
 
 export const CountryList = ({
   countries,
   currentPage,
+  lastPage,
   setCurrentPage,
 }: CountryListProp) => {
   return (
@@ -49,6 +51,7 @@ export const CountryList = ({
       <PaginateButtons
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
+        lastPage={lastPage}
       />
     </div>
   );

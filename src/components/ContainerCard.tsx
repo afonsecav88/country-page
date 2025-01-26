@@ -8,7 +8,7 @@ import { useGetCountries } from '../hooks/useGetCountries';
 
 export const ContainerCard = () => {
   const { countries, setCountries } = useGetCountries();
-  const { paginatedCountries, currentPage, setCurrentPage } =
+  const { paginatedCountries, currentPage, setCurrentPage, lastPage } =
     usePaginateCountries(countries);
 
   return (
@@ -30,6 +30,7 @@ export const ContainerCard = () => {
           countries={paginatedCountries}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          lastPage={lastPage}
         />
       </article>
     </section>

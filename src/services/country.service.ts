@@ -14,7 +14,7 @@ export class CountryService {
       const orderCountriesByPopulation = [...resp].sort(
         (a, b) => b.population - a.population
       );
-      return orderCountriesByPopulation;
+      return orderCountriesByPopulation || [];
     } catch (error) {
       console.log('Ha ocurrido un error', error);
     }

@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { useGetCountries } from '../hooks/useGetCountries';
 
 type StatusFilterProps = {
   setCountries: Dispatch<SetStateAction<CountriesInfo[]>>;
@@ -10,17 +11,38 @@ export const StatusFilter = ({
   setCountries,
   countries,
 }: StatusFilterProps) => {
+  const { getAllCountries } = useGetCountries();
   const [checkMember, setCheckMember] = useState(false);
-  const [checkIndependient, setCheckIndependient] = useState(false);
+  const [checkIndependent, setCheckIndependent] = useState(false);
 
-  useEffect(() => {
-    console.log('checkMember', checkMember);
+  const handleChangeCheckMember = () => {
     if (checkMember) {
       setCountries(
-        countries.filter((country) => country.unMember === checkMember)
+        [...countries].filter((country) => country.unMember === true)
       );
+    } else {
+      getAllCountries().then((countries) => setCountries(countries!));
     }
+  };
+
+  const handleChangeCheckIndependent = () => {
+    console.log('checkIndependent', checkIndependent);
+    if (checkIndependent) {
+      setCountries(
+        [...countries].filter((country) => country.unMember === false)
+      );
+    } else {
+      getAllCountries().then((countries) => setCountries(countries!));
+    }
+  };
+
+  useEffect(() => {
+    handleChangeCheckMember();
   }, [checkMember]);
+
+  useEffect(() => {
+    handleChangeCheckIndependent();
+  }, [checkIndependent]);
 
   return (
     <fieldset className="flex flex-col min-w-72 pb-8">
@@ -40,14 +62,14 @@ export const StatusFilter = ({
       <div className="inline-flex">
         <input
           type="checkbox"
-          id="independient"
-          name="checkIndependient"
-          checked={checkIndependient}
-          onChange={() => setCheckIndependient(!checkIndependient)}
+          id="independent"
+          name="checkIndependent"
+          checked={checkIndependent}
+          onChange={() => setCheckIndependent(!checkIndependent)}
           className={`w-5 h-5 appearance-none rounded-sm border-[1.5px] p-2 cursor-pointer transition-all border-[#6C727F] bg-[#1C1D1F] checked:bg-[url('/src/assets/Done_round.svg')]
             checked:bg-[#4E81EE] checked:bg-[center] checked:bg-[length:90%] bg-no-repeat checked:border-0`}
         />
-        <label className="text-sm ml-2">Independient</label>
+        <label className="text-sm ml-2">Independent</label>
       </div>
     </fieldset>
   );
