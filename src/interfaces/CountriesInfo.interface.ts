@@ -1,6 +1,7 @@
 export interface CountriesInfo {
   flags: Flags;
   name: Name;
+  unMember: boolean;
   currencies: { [key: string]: Currency };
   region: Region;
   subregion: string;
