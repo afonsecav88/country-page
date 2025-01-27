@@ -8,15 +8,17 @@ type CountryProviderChildren = {
 };
 
 export const CountryProvider = ({ children }: CountryProviderChildren) => {
-  const { countries } = useGetCountries();
+  const { countries, setCountries } = useGetCountries();
   const { paginatedCountries, currentPage, lastPage, setCurrentPage } =
     usePaginateCountries(countries);
 
   const initialState = {
     paginatedCountries,
+    countries,
     currentPage,
     lastPage,
     setCurrentPage,
+    setCountries,
   };
 
   return <CountryContext value={initialState}>{children}</CountryContext>;
