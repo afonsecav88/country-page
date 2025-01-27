@@ -18,7 +18,7 @@ export const ContainerCard = () => {
      border-[#282B30] border pb-8">
       <article className="inline-grid grid-flow-row grid-cols-1 md:grid-flow-col justify-between px-8 pt-2 gap-4">
         <CountriesCount numberOfCountries={countries.length} />
-        <SearchByFilter />
+        <SearchByFilter setCountries={setCountries} countries={countries} />
       </article>
 
       <article className="inline-grid grid-flow-row lg:grid-flow-col justify-between px-8 ">
