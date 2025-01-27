@@ -9,14 +9,20 @@ type CountryProviderChildren = {
 
 export const CountryProvider = ({ children }: CountryProviderChildren) => {
   const { countries, setCountries } = useGetCountries();
-  const { paginatedCountries, currentPage, lastPage, setCurrentPage } =
-    usePaginateCountries(countries);
+  const {
+    paginatedCountries,
+    currentPage,
+    lastPage,
+    setLastPage,
+    setCurrentPage,
+  } = usePaginateCountries(countries);
 
   const initialState = {
     paginatedCountries,
     countries,
     currentPage,
     lastPage,
+    setLastPage,
     setCurrentPage,
     setCountries,
   };

@@ -21,5 +21,11 @@ export const usePaginateCountries = (countries: CountriesInfo[]) => {
     paginatedAllCountries();
   }, [countries, currentPage, lastPage]);
 
-  return { paginatedCountries, setCurrentPage, currentPage, lastPage };
+  return {
+    paginatedCountries,
+    setCurrentPage,
+    currentPage,
+    lastPage,
+    setLastPage,
+  };
 };

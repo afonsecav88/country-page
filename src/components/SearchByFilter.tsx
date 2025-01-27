@@ -24,8 +24,11 @@ export const SearchByFilter: FC = () => {
       return;
     }
 
-    const filtered = originalCountries.filter((country) =>
-      country.name.common.toLowerCase().includes(term.toLowerCase().trim())
+    const filtered = originalCountries.filter(
+      (country) =>
+        country.name.common.toLowerCase().includes(term.toLowerCase().trim()) ||
+        country.region.toLowerCase().includes(term.toLowerCase().trim()) ||
+        country.subregion.toLowerCase().includes(term.toLowerCase().trim())
     );
     setCountries(filtered);
   };

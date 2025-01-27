@@ -6,6 +6,7 @@ export interface CountriesState {
   countries: CountriesInfo[];
   currentPage: number;
   lastPage: number;
+  setLastPage: Dispatch<React.SetStateAction<number>>;
   setCurrentPage: Dispatch<React.SetStateAction<number>>;
   setCountries: React.Dispatch<React.SetStateAction<CountriesInfo[]>>;
 }
