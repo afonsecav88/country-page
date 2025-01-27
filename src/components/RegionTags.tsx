@@ -1,15 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
-import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { countriesRegions } from '../mocks/countriesRegions';
 
-type RegionTagsProps = {
-  setCountries: Dispatch<SetStateAction<CountriesInfo[]>>;
-  countries: CountriesInfo[];
-};
-export const RegionTags = ({ setCountries, countries }: RegionTagsProps) => {
-  // const handleOnClickRegion = (region: string) => {
-  //   setSortCountries(region);
-  // };
+export const RegionTags = () => {
   return (
     <div className="lg:w-60 pb-6 font-bold text-xs">
       <span>
