@@ -54,3 +54,11 @@ export enum Region {
 }
 
 export type SortByFilterType = 'population' | 'area' | 'name';
+
+export type SelectRegions =
+  | 'Africa'
+  | 'Americas'
+  | 'Antarctic'
+  | 'Asia'
+  | 'Europe'
+  | 'Oceania';
