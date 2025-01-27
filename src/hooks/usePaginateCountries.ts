@@ -26,6 +26,5 @@ export const usePaginateCountries = (countries: CountriesInfo[]) => {
     setCurrentPage,
     currentPage,
     lastPage,
-    setLastPage,
   };
 };

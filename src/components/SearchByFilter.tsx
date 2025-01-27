@@ -4,7 +4,7 @@ import { useGetCountries } from '../hooks/useGetCountries';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 
 export const SearchByFilter: FC = () => {
-  const { setCountries } = use(CountryContext);
+  const { setCountries, setCurrentPage } = use(CountryContext);
   const [searchTerm, setSearchTerm] = useState('');
   const { getAllCountries } = useGetCountries();
   const [originalCountries, setOriginalCountries] = useState<CountriesInfo[]>(
@@ -31,6 +31,7 @@ export const SearchByFilter: FC = () => {
         country.subregion.toLowerCase().includes(term.toLowerCase().trim())
     );
     setCountries(filtered);
+    setCurrentPage(1);
   };
 
   const handleOnChangeSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
