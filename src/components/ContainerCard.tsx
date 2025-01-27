@@ -5,6 +5,7 @@ import { CountryList } from './CountryList';
 import { SortByFilter } from './SortByFilter';
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
 import { useGetCountries } from '../hooks/useGetCountries';
+import { RegionTags } from './RegionTags';
 
 export const ContainerCard = () => {
   const { countries, setCountries } = useGetCountries();
@@ -23,7 +24,7 @@ export const ContainerCard = () => {
       <article className="inline-grid grid-flow-row lg:grid-flow-col justify-between px-8 ">
         <span>
           <SortByFilter setCountries={setCountries} countries={countries} />
-          {/* <RegionTags setSortCountries={setSortCountries} /> */}
+          <RegionTags setCountries={setCountries} countries={countries} />
           <StatusFilter setCountries={setCountries} countries={countries} />
         </span>
         <CountryList

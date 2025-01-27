@@ -1,12 +1,15 @@
+import { Dispatch, SetStateAction } from 'react';
+import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { countriesRegions } from '../mocks/countriesRegions';
-type RegionTagsProps = {
-  setSortCountries: React.Dispatch<React.SetStateAction<string>>;
-};
 
-export const RegionTags = ({ setSortCountries }: RegionTagsProps) => {
-  const handleOnClickRegion = (region: string) => {
-    setSortCountries(region);
-  };
+type RegionTagsProps = {
+  setCountries: Dispatch<SetStateAction<CountriesInfo[]>>;
+  countries: CountriesInfo[];
+};
+export const RegionTags = ({ setCountries, countries }: RegionTagsProps) => {
+  // const handleOnClickRegion = (region: string) => {
+  //   setSortCountries(region);
+  // };
   return (
     <div className="lg:w-60 pb-6 font-bold text-xs">
       <span>
@@ -14,7 +17,7 @@ export const RegionTags = ({ setSortCountries }: RegionTagsProps) => {
         {countriesRegions.map((region) => (
           <button
             key={region}
-            onClick={() => handleOnClickRegion(region)}
+            onClick={() => {}}
             className="inline-flex gap bg-[#282B30] hover:bg-[#4E80EE] rounded-lg p-1.5 mr-4 mb-3 px-3">
             {region}
           </button>
