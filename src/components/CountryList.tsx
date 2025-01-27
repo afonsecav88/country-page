@@ -8,7 +8,6 @@ export const CountryList = () => {
   const { currentPage, lastPage, paginatedCountries, setCurrentPage } =
     use(CountryContext);
 
-  console.log({ currentPage, lastPage, paginatedCountries });
   return (
     <Suspense fallback={<Loading />}>
       <div>
