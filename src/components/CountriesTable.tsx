@@ -4,15 +4,15 @@ import { Loading } from './Loading';
 type CountriesTableProps = { paginatedCountries: CountriesInfo[] };
 export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
   return (
-    <div className="w-full lg:w-[55vw] overflow-x-auto">
+    <div className="w-full lg:w-[60vw] overflow-x-auto">
       <table className="table-fixed w-full">
         <thead>
           <tr className="text-xs text-[#6C727F] font-bold">
             <td className="w-28 pb-5 pl-4 ">Flag</td>
             <td className="md:w-56  pb-5 pl-3">Name</td>
-            <td className="min-w-20 pb-5">Population</td>
-            <td className="min-w-20 pb-5">Area(km²)</td>
-            <td className="min-w-32 pb-5">Region</td>
+            <td className="min-w-52 pb-5">Population</td>
+            <td className="min-w-16 pb-5 pl-4">Area(km²)</td>
+            <td className="min-w-32 pb-5 pl-4">Region</td>
           </tr>
           <tr className="border-[#282B30] border-2" />
         </thead>
@@ -33,8 +33,8 @@ export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
                   </td>
                   <td className="pt-4 h-16">{name.common}</td>
                   <td className="pt-4 h-16">{population}</td>
-                  <td className="pt-4 h-16">{area}</td>
-                  <td className="pt-4 h-16">{region}</td>
+                  <td className="pt-4 pl-4 h-16">{area}</td>
+                  <td className="pt-4 h-16 pl-4">{region}</td>
                 </tr>
               )
             )

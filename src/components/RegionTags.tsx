@@ -19,7 +19,6 @@ export const RegionTags = () => {
   useEffect(() => {
     getAllCountries().then((fetchedCountries) => {
       setCountriesByRegions(fetchedCountries || []);
-      // setCountries(fetchedCountries || []);
     });
     console.log('me ejecute');
   }, []);

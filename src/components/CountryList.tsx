@@ -1,8 +1,8 @@
 import { use } from 'react';
 import { PaginateButtons } from './PaginateButtons';
-import { CountryContext } from '../context/countryContext';
 
 import { CountriesTable } from './CountriesTable';
+import { CountryContext } from '../context/CountryContext';
 
 export const CountryList = () => {
   const { currentPage, lastPage, paginatedCountries, setCurrentPage } =
