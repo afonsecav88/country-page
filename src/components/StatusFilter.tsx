@@ -9,10 +9,30 @@ export const StatusFilter = () => {
   const [allCountries, setAllCountries] = useState<CountriesInfo[]>([]);
 
   useEffect(() => {
-    filterCountriesMembers();
+    if (checkIndependent) return;
+    filterMemberCountries();
   }, [checkMember]);
 
-  const filterCountriesMembers = () => {
+  useEffect(() => {
+    if (checkMember) return;
+    filterIndependentCountries();
+  }, [checkIndependent]);
+
+  const filterIndependentCountries = () => {
+    setAllCountries(countries);
+    console.log('checkMember', checkMember);
+    if (checkIndependent) {
+      const independentCountries = countries.filter(
+        (country) => country.unMember === false
+      );
+      console.log('independentCountries', independentCountries);
+      setCountries(independentCountries);
+    } else {
+      setCountries(allCountries);
+    }
+  };
+
+  const filterMemberCountries = () => {
     setAllCountries(countries);
     console.log('checkMember', checkMember);
     if (checkMember) {

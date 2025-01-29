@@ -1,9 +1,9 @@
 import { use } from 'react';
 import { CountryContext } from '../context/CountryContext';
-import { Loading } from './Loading';
 
 export const CountriesTable = () => {
   const { paginatedCountries } = use(CountryContext);
+
   return (
     <div className="w-full lg:w-[60vw] overflow-x-auto">
       <table className="table-fixed w-full">
@@ -17,7 +17,6 @@ export const CountriesTable = () => {
           </tr>
           <tr className="border-[#282B30] border-2" />
         </thead>
-
         <tbody className="min-h-[200px] h-auto align-top font-semibold">
           {paginatedCountries.length > 0 ? (
             paginatedCountries.map(
@@ -42,7 +41,7 @@ export const CountriesTable = () => {
           ) : (
             <tr>
               <td colSpan={5} className="text-center py-4 text-gray-400">
-                <Loading />
+                <p>No se encontraron paises</p>
               </td>
             </tr>
           )}
