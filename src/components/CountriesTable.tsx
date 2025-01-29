@@ -7,7 +7,7 @@ export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
     <div className="w-full lg:w-[60vw] overflow-x-auto">
       <table className="table-fixed w-full">
         <thead>
-          <tr className="text-xs text-[#6C727F] font-bold">
+          <tr className="text-xs text-[#D2D5DA] font-semibold">
             <td className="w-28 pb-5 pl-4 ">Flag</td>
             <td className="md:w-56  pb-5 pl-3">Name</td>
             <td className="min-w-52 pb-5">Population</td>
