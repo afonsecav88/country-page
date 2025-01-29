@@ -8,66 +8,46 @@ import {
 import { useGetCountries } from '../hooks/useGetCountries';
 
 export const RegionTags = () => {
-  const { countries, setCountries } = use(CountryContext);
+  const { setCountries, setCurrentPage } = use(CountryContext);
   const { getAllCountries } = useGetCountries();
   const [selectedRegions, setSelectedRegions] = useState<SelectRegions[]>([]);
   const [countriesAllCountries, setCountriesAllCountries] = useState<
     CountriesInfo[]
   >([]);
-  const [countriesFiltersByRegions, setCountriesFiltersByRegions] = useState<
-    CountriesInfo[]
-  >([]);
-
-  console.log('countriesFiltersByRegions', countriesFiltersByRegions);
+  const [, setCountriesFiltersByRegions] = useState<CountriesInfo[]>([]);
 
   useEffect(() => {
     getAllCountries().then((fetchedCountries) => {
       setCountriesAllCountries(fetchedCountries || []);
-      // setCountries(fetchedCountries || []);
     });
   }, []);
 
-  const addCountriesByRegions = (region: SelectRegions) => {
-    const filterRegionsByCountry = [...countriesAllCountries].filter(
-      (currentRegion) => currentRegion.region === region
-    );
-    setCountriesFiltersByRegions((prev) => [
-      ...prev,
-      ...filterRegionsByCountry,
-    ]);
-  };
-
-  const removeCountriesByRegions = (region: SelectRegions) => {
-    const filterRegionsByCountry = [...countriesFiltersByRegions].filter(
-      (currentRegion) => currentRegion.region !== region
-    );
-    setCountriesFiltersByRegions([...filterRegionsByCountry]);
-  };
-
   useEffect(() => {
-    setCountries(countriesFiltersByRegions);
-    if (!selectedRegions.length) {
+    if (selectedRegions.length === 0) {
       setCountries(countriesAllCountries);
+      return;
     }
-    console.log('seleccione una region');
-  }, [selectedRegions, setSelectedRegions]);
+    const filteredCountries = countriesAllCountries.filter((country) =>
+      selectedRegions.includes(country.region as SelectRegions)
+    );
+
+    setCountriesFiltersByRegions(filteredCountries);
+    setCountries(filteredCountries);
+    setCurrentPage(1);
+  }, [selectedRegions, countriesAllCountries]);
 
   const checkSelectedRegion = (region: SelectRegions) => {
     return selectedRegions.includes(region);
   };
 
   const handleOnClickRegion = (region: SelectRegions) => {
-    const isSelected = checkSelectedRegion(region);
-    if (!isSelected) {
-      setSelectedRegions((prev) => [...prev, region]);
-      addCountriesByRegions(region);
-    } else {
-      const updatedRegions = [...selectedRegions].filter(
-        (currentRegion) => currentRegion !== region
-      );
-      setSelectedRegions(updatedRegions);
-      removeCountriesByRegions(region);
-    }
+    setSelectedRegions((prev) => {
+      if (prev.includes(region)) {
+        return prev.filter((r) => r !== region);
+      } else {
+        return [...prev, region];
+      }
+    });
   };
 
   return (
