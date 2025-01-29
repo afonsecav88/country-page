@@ -1,40 +1,41 @@
-import { use, useEffect, useState } from 'react';
-import { countriesRegions } from '../mocks/countriesRegions';
+import { use, useState, useEffect } from 'react';
 import { CountryContext } from '../context/countryContext';
-import {
-  CountriesInfo,
-  SelectRegions,
-} from '../interfaces/CountriesInfo.interface';
 import { useGetCountries } from '../hooks/useGetCountries';
+import {
+  SelectRegions,
+  CountriesInfo,
+} from '../interfaces/CountriesInfo.interface';
+import { countriesRegions } from '../mocks/countriesRegions';
 
 export const RegionTags = () => {
   const { setCountries, setCurrentPage } = use(CountryContext);
   const { getAllCountries } = useGetCountries();
   const [selectedRegions, setSelectedRegions] = useState<SelectRegions[]>([]);
-  const [countriesAllCountries, setCountriesAllCountries] = useState<
-    CountriesInfo[]
-  >([]);
-  const [, setCountriesFiltersByRegions] = useState<CountriesInfo[]>([]);
+  const [countriesByRegions, setCountriesByRegions] = useState<CountriesInfo[]>(
+    []
+  );
 
   useEffect(() => {
     getAllCountries().then((fetchedCountries) => {
-      setCountriesAllCountries(fetchedCountries || []);
+      setCountriesByRegions(fetchedCountries || []);
+      // setCountries(fetchedCountries || []);
     });
+    console.log('me ejecute');
   }, []);
 
   useEffect(() => {
     if (selectedRegions.length === 0) {
-      setCountries(countriesAllCountries);
+      setCountries(countriesByRegions);
       return;
     }
-    const filteredCountries = countriesAllCountries.filter((country) =>
+
+    const filteredCountries = countriesByRegions.filter((country) =>
       selectedRegions.includes(country.region as SelectRegions)
     );
 
-    setCountriesFiltersByRegions(filteredCountries);
     setCountries(filteredCountries);
     setCurrentPage(1);
-  }, [selectedRegions, countriesAllCountries]);
+  }, [selectedRegions, countriesByRegions, setCountries, setCurrentPage]);
 
   const checkSelectedRegion = (region: SelectRegions) => {
     return selectedRegions.includes(region);
