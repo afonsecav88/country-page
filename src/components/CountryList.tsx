@@ -1,7 +1,7 @@
-import { Suspense, use } from 'react';
+import { use } from 'react';
 import { PaginateButtons } from './PaginateButtons';
 import { CountryContext } from '../context/countryContext';
-import { Loading } from './Loading';
+
 import { CountriesTable } from './CountriesTable';
 
 export const CountryList = () => {
@@ -9,15 +9,13 @@ export const CountryList = () => {
     use(CountryContext);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div>
-        <CountriesTable paginatedCountries={paginatedCountries} />
-        <PaginateButtons
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          lastPage={lastPage}
-        />
-      </div>
-    </Suspense>
+    <div>
+      <CountriesTable paginatedCountries={paginatedCountries} />
+      <PaginateButtons
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        lastPage={lastPage}
+      />
+    </div>
   );
 };

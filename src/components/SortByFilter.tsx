@@ -1,7 +1,7 @@
 import { use } from 'react';
 import { SortByFilterType } from '../interfaces/CountriesInfo.interface';
 import { useSortByCountries } from '../hooks/useSortByCountries';
-import { CountryContext } from '../context/countryContext';
+import { CountryContext } from '../context/CountryContext';
 
 export const SortByFilter = () => {
   const { countries, setCountries, setCurrentPage } = use(CountryContext);
@@ -16,11 +16,11 @@ export const SortByFilter = () => {
 
   return (
     <div className="pb-2">
-      <p className="text-xs text-[#6C727F] font-bold pb-2 ">Sort by</p>
+      <p className="text-xs font-semibold text-[#D2D5DA]  pb-2 ">Sort by</p>
       <select
         onChange={handleSelectFilter}
         name="select"
-        className="w-full lg:w-64 bg-[#1C1D1F] border-[#282B30] border-2 focus:outline-none p-2 rounded-md mb-6 text-sm cursor-pointer">
+        className="w-full lg:w-64 bg-[#1C1D1F] border-[#282B30] border-2 focus:outline-none p-2 rounded-md mb-6 text-sm font-bold cursor-pointer">
         <option value="population" defaultValue={'Population'}>
           Population
         </option>

@@ -1,11 +1,12 @@
 import { use, useState, useEffect } from 'react';
-import { CountryContext } from '../context/countryContext';
+
 import { useGetCountries } from '../hooks/useGetCountries';
 import {
   SelectRegions,
   CountriesInfo,
 } from '../interfaces/CountriesInfo.interface';
 import { countriesRegions } from '../mocks/countriesRegions';
+import { CountryContext } from '../context/CountryContext';
 
 export const RegionTags = () => {
   const { setCountries, setCurrentPage } = use(CountryContext);
@@ -54,15 +55,15 @@ export const RegionTags = () => {
   return (
     <div className="lg:w-60 pb-6 font-bold text-xs">
       <span>
-        <p className="text-xs text-[#6C727F] pb-2 font-bold">Region</p>
+        <p className="text-xs font-semibold text-[#D2D5DA] pb-2">Region</p>
         {countriesRegions.map((region) => (
           <button
             key={region}
             onClick={() => handleOnClickRegion(region)}
             className={
               checkSelectedRegion(region)
-                ? 'inline-flex gap bg-[#282B30] rounded-lg p-1.5 mr-4 mb-3 px-3'
-                : 'inline-flex gap bg-[#1C1D1F] rounded-lg p-1.5 mr-4 mb-3 px-3'
+                ? 'inline-flex gap text-sm font-semibold bg-[#282B30] rounded-lg p-1.5 mr-4 mb-3 px-3'
+                : 'inline-flex gap text-sm font-semibold bg-[#1C1D1F] rounded-lg p-1.5 mr-4 mb-3 px-3'
             }>
             {region}
           </button>

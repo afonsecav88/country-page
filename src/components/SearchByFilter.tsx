@@ -1,7 +1,7 @@
 import { FC, use, useEffect, useState } from 'react';
-import { CountryContext } from '../context/countryContext';
 import { useGetCountries } from '../hooks/useGetCountries';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { CountryContext } from '../context/CountryContext';
 
 export const SearchByFilter: FC = () => {
   const { setCountries, setCurrentPage } = use(CountryContext);
@@ -48,7 +48,7 @@ export const SearchByFilter: FC = () => {
       onChange={handleOnChangeSearchTerm}
       id="searchBy"
       placeholder="Search by Name, Region, Subregion"
-      className="flex bg-[url('/src/assets/Search.svg')] bg-no-repeat bg-[10px_center] bg-[rgb(40,43,48)] text-[#D2D5DA] mb-4 sm:m-0 pl-12 sm:mr-2 w-full md:w-72 h-9 text-xs rounded-lg shadow-sm focus:outline-0 focus:border-sky-500"
+      className="flex bg-[url('/src/assets/Search.svg')] bg-no-repeat bg-[10px_center] bg-[rgb(40,43,48)] text-[#D2D5DA] mb-4 sm:m-0 pl-12 sm:mr-2 w-full md:w-72 h-9 text-xs font-semibold rounded-lg shadow-sm focus:outline-0 focus:border-sky-500"
     />
   );
 };

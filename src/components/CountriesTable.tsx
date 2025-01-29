@@ -1,4 +1,5 @@
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { Loading } from './Loading';
 
 type CountriesTableProps = { paginatedCountries: CountriesInfo[] };
 export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
@@ -7,20 +8,23 @@ export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
       <table className="table-fixed w-full">
         <thead>
           <tr className="text-xs text-[#6C727F] font-bold">
-            <td className="w-20 pb-5">Flag</td>
-            <td className="w-56 pb-5">Name</td>
+            <td className="w-28 pb-5 pl-4 ">Flag</td>
+            <td className="md:w-56  pb-5 pl-3">Name</td>
             <td className="min-w-20 pb-5">Population</td>
             <td className="min-w-20 pb-5">Area(km²)</td>
             <td className="min-w-32 pb-5">Region</td>
           </tr>
           <tr className="border-[#282B30] border-2" />
         </thead>
-        <tbody className="min-h-[200px] h-auto align-top">
+
+        <tbody className="min-h-[200px] h-auto align-top font-semibold">
           {paginatedCountries.length > 0 ? (
             paginatedCountries.map(
               ({ flags, name, population, area, region }) => (
-                <tr key={name.common} className="text-base text-[#D2D5DA]">
-                  <td className="min-w-20 h-16 pt-4">
+                <tr
+                  key={name.common}
+                  className="text-base text-[#D2D5DA] hover:bg-[#282B30] hover:cursor-pointer hover:transition-all  hover:duration-700 hover:ease-in-out">
+                  <td className="min-w-20 h-16 pt-4 pl-3">
                     <img
                       src={flags.png}
                       alt={name.common}
@@ -37,7 +41,7 @@ export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
           ) : (
             <tr>
               <td colSpan={5} className="text-center py-4 text-gray-400">
-                No data available
+                <Loading />
               </td>
             </tr>
           )}
