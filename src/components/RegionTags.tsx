@@ -20,7 +20,6 @@ export const RegionTags = () => {
     getAllCountries().then((fetchedCountries) => {
       setCountriesByRegions(fetchedCountries || []);
     });
-    console.log('me ejecute');
   }, []);
 
   useEffect(() => {

@@ -1,16 +1,9 @@
-import { Dispatch } from 'react';
+import { use } from 'react';
+import { CountryContext } from '../context/CountryContext';
 
-interface PaginateButtonsProps {
-  currentPage: number;
-  lastPage: number;
-  setCurrentPage: Dispatch<React.SetStateAction<number>>;
-}
+export const PaginateButtons = () => {
+  const { currentPage, setCurrentPage, lastPage } = use(CountryContext);
 
-export const PaginateButtons = ({
-  currentPage,
-  lastPage,
-  setCurrentPage,
-}: PaginateButtonsProps) => {
   const handleClickPreview = () => {
     if (currentPage === 1) return;
     setCurrentPage(currentPage - 1);

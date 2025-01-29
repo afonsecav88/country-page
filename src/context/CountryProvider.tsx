@@ -1,14 +1,15 @@
 import { JSX } from 'react';
-import { CountryContext } from './countryContext';
+
 import { useGetCountries } from '../hooks/useGetCountries';
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
+import { CountryContext } from './CountryContext';
 
 type CountryProviderChildren = {
   children: JSX.Element | JSX.Element[];
 };
 
 export const CountryProvider = ({ children }: CountryProviderChildren) => {
-  const { countries, setCountries } = useGetCountries();
+  const { countries, setCountries, isLoadingCountries } = useGetCountries();
   const { paginatedCountries, currentPage, lastPage, setCurrentPage } =
     usePaginateCountries(countries);
 
@@ -17,6 +18,7 @@ export const CountryProvider = ({ children }: CountryProviderChildren) => {
     countries,
     currentPage,
     lastPage,
+    isLoadingCountries,
     setCurrentPage,
     setCountries,
   };

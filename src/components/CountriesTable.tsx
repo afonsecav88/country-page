@@ -1,15 +1,16 @@
-import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { use } from 'react';
+import { CountryContext } from '../context/CountryContext';
 import { Loading } from './Loading';
 
-type CountriesTableProps = { paginatedCountries: CountriesInfo[] };
-export const CountriesTable = ({ paginatedCountries }: CountriesTableProps) => {
+export const CountriesTable = () => {
+  const { paginatedCountries } = use(CountryContext);
   return (
     <div className="w-full lg:w-[60vw] overflow-x-auto">
       <table className="table-fixed w-full">
         <thead>
           <tr className="text-xs text-[#D2D5DA] font-semibold">
             <td className="w-28 pb-5 pl-4 ">Flag</td>
-            <td className="md:w-56  pb-5 pl-3">Name</td>
+            <td className="md:w-56  pb-5 ">Name</td>
             <td className="min-w-52 pb-5">Population</td>
             <td className="min-w-16 pb-5 pl-4">Area(km²)</td>
             <td className="min-w-32 pb-5 pl-4">Region</td>

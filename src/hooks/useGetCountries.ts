@@ -4,11 +4,14 @@ import { CountryService } from '../services/country.service';
 
 export const useGetCountries = () => {
   const [countries, setCountries] = useState<CountriesInfo[]>([]);
+  const [isLoadingCountries, setIsLoadingCountries] = useState(false);
 
   const getAllCountries = async () => {
     try {
+      setIsLoadingCountries(true);
       const countries = await CountryService.getCountiesInfo();
       setCountries(countries || []);
+      setIsLoadingCountries(false);
       return countries || [];
     } catch (error) {
       console.log(error);
@@ -19,5 +22,5 @@ export const useGetCountries = () => {
     getAllCountries();
   }, []);
 
-  return { countries, setCountries, getAllCountries };
+  return { countries, setCountries, getAllCountries, isLoadingCountries };
 };
