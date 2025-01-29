@@ -11,29 +11,45 @@ export const RegionTags = () => {
   const { countries, setCountries } = use(CountryContext);
   const { getAllCountries } = useGetCountries();
   const [selectedRegions, setSelectedRegions] = useState<SelectRegions[]>([]);
-  const [countriesByRegions, setCountriesByRegions] = useState<CountriesInfo[]>(
-    []
-  );
+  const [countriesAllCountries, setCountriesAllCountries] = useState<
+    CountriesInfo[]
+  >([]);
+  const [countriesFiltersByRegions, setCountriesFiltersByRegions] = useState<
+    CountriesInfo[]
+  >([]);
 
-  console.log('selectedRegions', selectedRegions);
+  console.log('countriesFiltersByRegions', countriesFiltersByRegions);
+
   useEffect(() => {
     getAllCountries().then((fetchedCountries) => {
-      setCountriesByRegions(fetchedCountries || []);
-      setCountries(fetchedCountries || []);
+      setCountriesAllCountries(fetchedCountries || []);
+      // setCountries(fetchedCountries || []);
     });
   }, []);
 
+  const addCountriesByRegions = (region: SelectRegions) => {
+    const filterRegionsByCountry = [...countriesAllCountries].filter(
+      (currentRegion) => currentRegion.region === region
+    );
+    setCountriesFiltersByRegions((prev) => [
+      ...prev,
+      ...filterRegionsByCountry,
+    ]);
+  };
+
+  const removeCountriesByRegions = (region: SelectRegions) => {
+    const filterRegionsByCountry = [...countriesFiltersByRegions].filter(
+      (currentRegion) => currentRegion.region !== region
+    );
+    setCountriesFiltersByRegions([...filterRegionsByCountry]);
+  };
+
   useEffect(() => {
-    const searchCountriesByRegions = () => {
-      return selectedRegions.map((currentRegion) => {
-        const regionsCountries = [...countries].filter(
-          (country) => country.region === currentRegion
-        );
-        console.log('regionsCountries', regionsCountries);
-        return regionsCountries;
-      });
-    };
-    searchCountriesByRegions();
+    setCountries(countriesFiltersByRegions);
+    if (!selectedRegions.length) {
+      setCountries(countriesAllCountries);
+    }
+    console.log('seleccione una region');
   }, [selectedRegions, setSelectedRegions]);
 
   const checkSelectedRegion = (region: SelectRegions) => {
@@ -42,12 +58,15 @@ export const RegionTags = () => {
 
   const handleOnClickRegion = (region: SelectRegions) => {
     const isSelected = checkSelectedRegion(region);
-    if (!isSelected) setSelectedRegions((prev) => [...prev, region]);
-    else {
+    if (!isSelected) {
+      setSelectedRegions((prev) => [...prev, region]);
+      addCountriesByRegions(region);
+    } else {
       const updatedRegions = [...selectedRegions].filter(
         (currentRegion) => currentRegion !== region
       );
       setSelectedRegions(updatedRegions);
+      removeCountriesByRegions(region);
     }
   };
 
