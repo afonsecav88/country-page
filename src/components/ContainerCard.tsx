@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { CountriesCount } from './CountriesCount';
 import { SearchByFilter } from './SearchByFilter';
 import { StatusFilter } from './StatusFilter';
-import { CountryList } from './CountryList';
 import { SortByFilter } from './SortByFilter';
-
 import { RegionTags } from './RegionTags';
+
+import { CountryList } from './CountryList';
 
 export const ContainerCard: FC = () => {
   return (
@@ -16,7 +16,6 @@ export const ContainerCard: FC = () => {
         <CountriesCount />
         <SearchByFilter />
       </article>
-
       <article className="inline-grid grid-flow-row lg:grid-flow-col justify-between sm:px-8 ">
         <span>
           <SortByFilter />
