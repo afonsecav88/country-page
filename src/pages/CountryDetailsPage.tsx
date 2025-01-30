@@ -3,11 +3,15 @@ import { useFormattedCountryName } from '../hooks/useFormattedName';
 import { use } from 'react';
 import { CountryContext } from '../context/CountryContext';
 import { CountryDetails } from '../components/CountryDetails';
+import { Loading } from '../components/Loading';
 
 export const CountryDetailsPage = () => {
   const { countries } = use(CountryContext);
   const { name } = useParams();
   const { formattedCountryName } = useFormattedCountryName();
+
+  console.log('countries', countries);
+  if (!countries.length) return <Loading />;
 
   const hasExistCountry = countries.find(
     (country) =>
@@ -16,5 +20,5 @@ export const CountryDetailsPage = () => {
 
   if (!hasExistCountry) return <Navigate to="/countries" replace />;
 
-  return <CountryDetails hasExistCountry={hasExistCountry} />;
+  return <CountryDetails country={hasExistCountry} />;
 };

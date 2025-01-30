@@ -1,4 +1,4 @@
-import { use, useEffect } from 'react';
+import { use } from 'react';
 
 import { CountryService } from '../services/country.service';
 import { CountryContext } from '../context/CountryContext';
@@ -16,10 +16,6 @@ export const useGetCountries = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    getAllCountries();
-  }, []);
 
   return { getAllCountries };
 };

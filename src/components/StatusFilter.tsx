@@ -20,7 +20,7 @@ export const StatusFilter = () => {
 
   const filterIndependentCountries = () => {
     setAllCountries(countries);
-    console.log('checkMember', checkMember);
+
     if (checkIndependent) {
       const independentCountries = countries.filter(
         (country) => country.unMember === false
@@ -33,12 +33,11 @@ export const StatusFilter = () => {
 
   const filterMemberCountries = () => {
     setAllCountries(countries);
-    console.log('checkMember', checkMember);
     if (checkMember) {
       const membersCountries = countries.filter(
         (country) => country.unMember === true
       );
-      console.log('membersCountries', membersCountries);
+
       setCountries(membersCountries);
     } else {
       setCountries(allCountries);
