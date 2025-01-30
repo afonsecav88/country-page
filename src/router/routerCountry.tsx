@@ -14,7 +14,7 @@ export const routerCountry = createBrowserRouter([
     element: <ContainerCard />,
   },
   {
-    path: 'countries/country-details/:id',
+    path: 'countries/country-details/:name',
     element: <CountryDetailsPage />,
   },
 ]);

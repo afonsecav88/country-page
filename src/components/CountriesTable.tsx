@@ -1,8 +1,12 @@
 import { use } from 'react';
 import { CountryContext } from '../context/CountryContext';
+import { useNavigate } from 'react-router-dom';
+import { useFormattedCountryName } from '../hooks/useFormattedName';
 
 export const CountriesTable = () => {
   const { paginatedCountries } = use(CountryContext);
+  const { formattedCountryName } = useFormattedCountryName();
+  const navigate = useNavigate();
 
   return (
     <div className="w-full lg:w-[60vw] overflow-x-auto">
@@ -23,6 +27,11 @@ export const CountriesTable = () => {
               ({ flags, name, population, area, region }) => (
                 <tr
                   key={name.common}
+                  onClick={() =>
+                    navigate(
+                      `country-details/${formattedCountryName(name.common)}`
+                    )
+                  }
                   className="text-base text-[#D2D5DA] hover:bg-[#282B30] hover:cursor-pointer hover:transition-all  hover:duration-700 hover:ease-in-out">
                   <td className="min-w-20 h-16 pt-4 pl-3">
                     <img
