@@ -29,7 +29,6 @@ export class CountryService {
       const urlApiCountries = `${apiCountriesURL}/alpha?codes=${countryCodes}`;
       const data = await fetch(urlApiCountries);
       const resp: CountriesInfo[] = await data.json();
-      console.log('resp', resp);
 
       if (!resp) {
         return [];

@@ -25,7 +25,6 @@ export const StatusFilter = () => {
       const independentCountries = countries.filter(
         (country) => country.unMember === false
       );
-      console.log('independentCountries', independentCountries);
       setCountries(independentCountries);
     } else {
       setCountries(allCountries);
