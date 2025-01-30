@@ -88,7 +88,7 @@ export const CountryDetails = ({ hasExistCountry }: CountryDetailsProps) => {
         <div className="inline-flex justify-between px-6 py-6 items-center">
           <p>Neighboring Countries</p>
         </div>
-        <div className="flex px-6 py-6 items-center">
+        <div className="flex px-6 py-6 items-center gap-2">
           {neightbouringCountries.map((neighbouring) => (
             <div
               key={neighbouring?.name.common}
@@ -96,7 +96,7 @@ export const CountryDetails = ({ hasExistCountry }: CountryDetailsProps) => {
               <img
                 src={neighbouring?.flags.svg}
                 alt={neighbouring?.name.common}
-                className="w-12 h-8 rounded-sm"
+                className="w-20 h-16 rounded-sm"
               />
               <p> {neighbouring?.name.common}</p>
             </div>
