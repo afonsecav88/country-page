@@ -16,5 +16,5 @@ export const CountryDetailsPage = () => {
 
   if (!hasExistCountry) return <Navigate to="/countries" replace />;
 
-  return <CountryDetails />;
+  return <CountryDetails hasExistCountry={hasExistCountry} />;
 };

@@ -5,6 +5,7 @@ export interface CountriesInfo {
   currencies: { [key: string]: Currency };
   region: Region;
   subregion: string;
+  capital: string[];
   languages: { [key: string]: string };
   borders: string[];
   area: number;

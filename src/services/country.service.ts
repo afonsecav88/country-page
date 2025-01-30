@@ -6,7 +6,7 @@ export class CountryService {
   public static readonly getCountiesInfo = async (): Promise<
     CountriesInfo[] | undefined
   > => {
-    const urlApiCountries = `${apiCountriesURL}/all?fields=name,flags,population,area,region,languages,currencies,borders,subregion,continents,unMember`;
+    const urlApiCountries = `${apiCountriesURL}/all?fields=name,flags,population,area,region,languages,currencies,borders,subregion,continents,unMember,capital`;
 
     try {
       const data = await fetch(urlApiCountries);
