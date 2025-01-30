@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { use, useEffect } from 'react';
+
 import { CountryService } from '../services/country.service';
+import { CountryContext } from '../context/CountryContext';
 
 export const useGetCountries = () => {
-  const [countries, setCountries] = useState<CountriesInfo[]>([]);
-  const [isLoadingCountries, setIsLoadingCountries] = useState(false);
-
+  const { setCountries, setIsLoadingCountries } = use(CountryContext);
   const getAllCountries = async () => {
     try {
       setIsLoadingCountries(true);
@@ -22,5 +21,5 @@ export const useGetCountries = () => {
     getAllCountries();
   }, []);
 
-  return { countries, setCountries, getAllCountries, isLoadingCountries };
+  return { getAllCountries };
 };

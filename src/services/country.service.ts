@@ -19,4 +19,24 @@ export class CountryService {
       console.log('Ha ocurrido un error', error);
     }
   };
+
+  public static readonly getCountriesByAlphaCode = async (
+    borderCodes: string[]
+  ): Promise<Partial<CountriesInfo[]> | null> => {
+    try {
+      if (!borderCodes.length) return [];
+      const countryCodes = borderCodes.join(',');
+      const urlApiCountries = `${apiCountriesURL}/alpha?codes=${countryCodes}`;
+      const data = await fetch(urlApiCountries);
+      const resp: CountriesInfo[] = await data.json();
+      console.log('resp', resp);
+
+      if (!resp) {
+        return [];
+      }
+      return resp;
+    } catch (error) {
+      return null;
+    }
+  };
 }

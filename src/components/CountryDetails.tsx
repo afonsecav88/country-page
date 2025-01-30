@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useGetNeightbouringCountries } from '../hooks/useGetNeightbouringCountries';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 
 type CountryDetailsProps = {
@@ -5,8 +7,26 @@ type CountryDetailsProps = {
 };
 
 export const CountryDetails = ({ hasExistCountry }: CountryDetailsProps) => {
-  const { flags, name, population, area, currencies, languages } =
-    hasExistCountry;
+  const {
+    flags,
+    name,
+    population,
+    area,
+    capital,
+    subregion,
+    currencies,
+    languages,
+    continents,
+    borders,
+  } = hasExistCountry;
+
+  const { getNeightbouringCountries, neightbouringCountries } =
+    useGetNeightbouringCountries();
+
+  console.log('neightbouringCountries', neightbouringCountries);
+  useEffect(() => {
+    getNeightbouringCountries(borders);
+  }, []);
 
   return (
     <section
@@ -16,7 +36,7 @@ export const CountryDetails = ({ hasExistCountry }: CountryDetailsProps) => {
         <div className="flex justify-center pb-5">
           {' '}
           <img
-            src={flags.png}
+            src={flags.svg}
             alt={name.common}
             className="w-12 h-8 rounded-sm"
           />
@@ -33,15 +53,55 @@ export const CountryDetails = ({ hasExistCountry }: CountryDetailsProps) => {
           <span>Area(km²)</span>
           <span>{area}</span>
         </div>
-        <tr className="border-[#23262b] border w-full" />
-        <div className="inline-flex justify-between px-4 py-6 items-center">
-          <p>{}</p>
-          <p>2</p>
+        <hr className="border-[#23262b] border w-full" />
+        <div className="inline-flex justify-between px-6 py-6 items-center">
+          <p>Capital</p>
+          <p>{capital}</p>
         </div>
-        <div className="inline-flex"></div>
-        <div className="inline-flex"></div>
-        <div className="inline-flex"></div>
-        <div className="inline-flex"></div>
+        <hr className="border-[#23262b] border w-full" />
+        <div className="inline-flex justify-between px-6 py-6 items-center">
+          <p>Subregion</p>
+          <p>{subregion}</p>
+        </div>
+        <hr className="border-[#23262b] border w-full" />
+        <div className="inline-flex justify-between px-6 py-6 items-center">
+          <p>Language</p>
+          {Object.values(languages).map((language) => (
+            <p key={language}>{language}</p>
+          ))}
+        </div>
+        <hr className="border-[#23262b] border w-full" />
+        <div className="inline-flex justify-between px-6 py-6 items-center">
+          <p>Currencies</p>
+          {Object.values(currencies).map((c) => (
+            <p key={c.name}>{c.name}</p>
+          ))}
+        </div>
+        <hr className="border-[#23262b] border w-full" />
+        <div className="inline-flex justify-between px-6 py-6 items-center">
+          <p>Continents</p>
+          {continents.map((continent) => (
+            <p key={continent}>{continent}</p>
+          ))}
+        </div>
+        <hr className="border-[#23262b] border w-full" />
+        <div className="inline-flex justify-between px-6 py-6 items-center">
+          <p>Neighboring Countries</p>
+        </div>
+        <div className="flex px-6 py-6 items-center">
+          {neightbouringCountries.map((neighbouring) => (
+            <div
+              key={neighbouring?.name.common}
+              className="flex flex-col flex-wrap">
+              <img
+                src={neighbouring?.flags.svg}
+                alt={neighbouring?.name.common}
+                className="w-12 h-8 rounded-sm"
+              />
+              <p> {neighbouring?.name.common}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -29,15 +29,15 @@ export interface Currency {
 }
 
 export interface Flags {
-  png: string;
   svg: string;
-  alt: string;
+  alt?: string;
+  png?: string;
 }
 
 export interface Name {
   common: string;
   official: string;
-  nativeName: { [key: string]: NativeName };
+  nativeName?: { [key: string]: NativeName };
 }
 
 export interface NativeName {

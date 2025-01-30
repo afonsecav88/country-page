@@ -7,6 +7,7 @@ export interface CountriesState {
   currentPage: number;
   lastPage: number;
   isLoadingCountries: boolean;
+  setIsLoadingCountries: Dispatch<React.SetStateAction<boolean>>;
   setCurrentPage: Dispatch<React.SetStateAction<number>>;
   setCountries: React.Dispatch<React.SetStateAction<CountriesInfo[]>>;
 }

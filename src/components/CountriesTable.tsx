@@ -35,7 +35,7 @@ export const CountriesTable = () => {
                   className="text-base text-[#D2D5DA] hover:bg-[#282B30] hover:cursor-pointer hover:transition-all  hover:duration-700 hover:ease-in-out">
                   <td className="min-w-20 h-16 pt-4 pl-3">
                     <img
-                      src={flags.png}
+                      src={flags.svg}
                       alt={name.common}
                       className="w-12 h-8 rounded-sm"
                     />
