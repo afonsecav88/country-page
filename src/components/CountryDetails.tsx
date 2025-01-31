@@ -61,41 +61,41 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
           </span>
         </div>
         <hr className="border-[#23262b] border w-full" />
-        <div className="inline-flex  justify-start gap-24 sm:justify-between px-6 py-6 items-center">
+        <div className="inline-flex  justify-start pl-10 gap-40 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Capital</p>
           <p className="text-sm font-semibold">{capital}</p>
         </div>
         <hr className="border-[#23262b] border w-full" />
-        <div className="inline-flex  justify-start gap-20 sm:justify-between px-6 py-6 items-center">
+        <div className="inline-flex  justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Subregion</p>
           <p className="text-sm font-semibold">{subregion}</p>
         </div>
         <hr className="border-[#23262b] border w-full" />
-        <div className="inline-flex justify-start gap-20 sm:justify-between px-6 py-6 items-center">
+        <div className="inline-flex justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
           <div>
             <p className="text-sm font-semibold">Language</p>
           </div>
           <div className="flex">{Object.values(languages).join('')}</div>
         </div>
         <hr className="border-[#23262b] border w-full" />
-        <div className="inline-flex  justify-start gap-20 sm:justify-between px-6 py-6 items-center">
+        <div className="inline-flex  justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Currencies</p>
           {Object.values(currencies).map((c) => (
             <p key={c.name}>{c.name}</p>
           ))}
         </div>
         <hr className="border-[#23262b] border w-full" />
-        <div className="inline-flex  justify-start gap-20 sm:justify-between px-6 py-6 items-center">
+        <div className="inline-flex  justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Continents</p>
           {continents.map((continent) => (
             <p key={continent}>{continent}</p>
           ))}
         </div>
         <hr className="border-[#23262b] border w-full" />
-        <div className="inline-flex  justify-around sm:justify-between px-6 py-6 items-center">
+        <div className="inline-flex  justify-start pl-10 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Neighboring Countries</p>
         </div>
-        <div className="flex px-6 py-6 gap-4 flex-wrap">
+        <div className="flex justify-start pl-10 sm:px-6 sm:py-2 gap-4 flex-wrap">
           {neightbouringCountries.map((neighbouring) => (
             <div
               key={neighbouring?.name.common}
