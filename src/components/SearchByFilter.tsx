@@ -1,21 +1,17 @@
 import { FC, use, useEffect, useState } from 'react';
-import { useGetCountries } from '../hooks/useGetCountries';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { CountryContext } from '../context/CountryContext';
 
 export const SearchByFilter: FC = () => {
-  const { setCountries, setCurrentPage } = use(CountryContext);
+  const { countries, setCountries, setCurrentPage } = use(CountryContext);
   const [searchTerm, setSearchTerm] = useState('');
-  const { getAllCountries } = useGetCountries();
+
   const [originalCountries, setOriginalCountries] = useState<CountriesInfo[]>(
     []
   );
 
   useEffect(() => {
-    getAllCountries().then((fetchedCountries) => {
-      setOriginalCountries(fetchedCountries || []);
-      setCountries(fetchedCountries || []);
-    });
+    setOriginalCountries(countries || []);
   }, []);
 
   const filterCountriesBySearchTerm = (term: string) => {
