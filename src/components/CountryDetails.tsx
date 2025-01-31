@@ -32,7 +32,7 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
       className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5  sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-full md:w-[70vw] lg-w-[56.5vw] max-w-[45rem] h-auto absolute top-52 rounded-lg
   border-[#282B30] border pb-8">
       <div className="flex flex-col  flex-wrap">
-        <div className="flex justify-center pb-16 relative -top-16">
+        <div className="flex justify-center pb-2 sm:pb-10 relative -top-16">
           {' '}
           <img
             src={flags.svg}
@@ -42,7 +42,7 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-col items-center pt-14 pb-16">
+        <div className="flex flex-col items-center pb-16 pt-6 sm:pt-2 md:pt-20">
           <p className="text-3xl font-bold">{name.common}</p>
           <p className="text-base font-semibold">{name.official}</p>
         </div>
