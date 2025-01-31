@@ -1,6 +1,4 @@
 import { use, useState, useEffect } from 'react';
-
-import { useGetCountries } from '../hooks/useGetCountries';
 import {
   SelectRegions,
   CountriesInfo,
@@ -9,17 +7,14 @@ import { countriesRegions } from '../mocks/countriesRegions';
 import { CountryContext } from '../context/CountryContext';
 
 export const RegionTags = () => {
-  const { setCountries, setCurrentPage } = use(CountryContext);
-  const { getAllCountries } = useGetCountries();
+  const { countries, setCountries, setCurrentPage } = use(CountryContext);
   const [selectedRegions, setSelectedRegions] = useState<SelectRegions[]>([]);
   const [countriesByRegions, setCountriesByRegions] = useState<CountriesInfo[]>(
     []
   );
 
   useEffect(() => {
-    getAllCountries().then((fetchedCountries) => {
-      setCountriesByRegions(fetchedCountries || []);
-    });
+    setCountriesByRegions(countries || []);
   }, []);
 
   useEffect(() => {
