@@ -41,8 +41,8 @@ export const CountriesTable = () => {
                     />
                   </td>
                   <td className="pt-4 h-16">{name.common}</td>
-                  <td className="pt-4 h-16">{population}</td>
-                  <td className="pt-4 pl-4 h-16">{area}</td>
+                  <td className="pt-4 h-16">{population.toLocaleString()}</td>
+                  <td className="pt-4 pl-4 h-16">{area.toLocaleString()}</td>
                   <td className="pt-4 h-16 pl-4">{region}</td>
                 </tr>
               )

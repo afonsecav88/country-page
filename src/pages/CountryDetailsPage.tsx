@@ -10,7 +10,6 @@ export const CountryDetailsPage = () => {
   const { name } = useParams();
   const { formattedCountryName } = useFormattedCountryName();
 
-  console.log('countries', countries);
   if (!countries.length) return <Loading />;
 
   const hasExistCountry = countries.find(

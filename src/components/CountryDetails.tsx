@@ -29,28 +29,33 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
 
   return (
     <section
-      className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5  sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA]  w-full md:w-[70vw]  lg:w-[56.5vw]  h-[59rem] absolute top-48 rounded-lg
+      className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5  sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA]  w-full md:w-[70vw]  lg:w-[56.5vw]  h-[59rem] absolute top-52 rounded-lg
   border-[#282B30] border pb-8">
       <div className="flex flex-col">
-        <div className="flex justify-center pb-5">
+        <div className="flex justify-center pb-16 relative -top-16">
           {' '}
           <img
             src={flags.svg}
             alt={name.common}
-            className="w-12 h-8 rounded-sm"
+            className="w-64 h-44 rounded-2xl"
           />
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-col items-center pb-5">
-          <p>{name.common}</p>
-          <p>{name.official}</p>
+        <div className="flex flex-col items-center pt-14 pb-16">
+          <p className="text-3xl font-bold">{name.common}</p>
+          <p className="text-base font-semibold">{name.official}</p>
         </div>
         <div className="flex gap-4 justify-center pb-6">
-          <span>Population</span>
-          <span className="mr-10">{population}</span>
+          <span className="inline-flex bg-[#282B30] gap-3 p-4 rounded-md w-fit items-center">
+            <p className="text-sm font-semibold">Population</p>
+            <div className="border-[#1E1F23] min-h-8 border"></div>
+            <p className="text-md font-semibold">
+              {population.toLocaleString()}
+            </p>
+          </span>
           <span>Area(km²)</span>
-          <span>{area}</span>
+          <span>{area.toLocaleString()}</span>
         </div>
         <hr className="border-[#23262b] border w-full" />
         <div className="inline-flex justify-between px-6 py-6 items-center">
