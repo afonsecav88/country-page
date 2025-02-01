@@ -87,14 +87,18 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
         <div className="inline-flex  justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Currencies</p>
           {Object.values(currencies).map((c) => (
-            <p key={c.name}>{c.name}</p>
+            <p key={c.name} className="text-sm font-semibold">
+              {c.name}
+            </p>
           ))}
         </div>
         <hr className="border-[#23262b] border w-full" />
         <div className="inline-flex  justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
           <p className="text-sm font-semibold">Continents</p>
           {continents.map((continent) => (
-            <p key={continent}>{continent}</p>
+            <p key={continent} className="text-sm font-semibold">
+              {continent}
+            </p>
           ))}
         </div>
         <hr className="border-[#23262b] border w-full" />
