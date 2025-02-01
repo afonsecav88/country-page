@@ -3,6 +3,7 @@ import { useGetNeightbouringCountries } from '../hooks/useGetNeightbouringCountr
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { useNavigate } from 'react-router-dom';
 import { useFormattedCountryName } from '../hooks/useFormattedName';
+import { LoadingCountryDetail } from './CountryItem';
 
 type CountryDetailsProps = {
   country: CountriesInfo;
@@ -33,9 +34,10 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
 
   return (
     <section
-      className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5  sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-full md:w-[70vw] lg-w-[56.5vw] max-w-[45rem] h-auto absolute top-52 rounded-lg
+      className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5  sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-full md:w-[70vw] lg-w-[56.5vw] max-w-[45rem] h-auto min-h-[90vh] absolute top-52 rounded-lg
   border-[#282B30] border pb-8">
-      <div className="flex flex-col  flex-wrap">
+      {country && <LoadingCountryDetail />}
+      {/* <div className="flex flex-col  flex-wrap">
         <div className="flex justify-center pb-2 sm:pb-10 relative -top-16">
           {' '}
           <img
@@ -128,7 +130,7 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
