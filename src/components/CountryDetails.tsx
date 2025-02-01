@@ -75,7 +75,9 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
           <div>
             <p className="text-sm font-semibold">Language</p>
           </div>
-          <div className="flex">{Object.values(languages).join('')}</div>
+          <div className="flex text-sm font-semibold">
+            {Object.values(languages).join(', ')}
+          </div>
         </div>
         <hr className="border-[#23262b] border w-full" />
         <div className="inline-flex  justify-start pl-10 gap-36 sm:justify-between sm:px-6 py-6 items-center">
