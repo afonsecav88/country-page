@@ -3,14 +3,14 @@ import { useFormattedCountryName } from '../hooks/useFormattedName';
 import { use } from 'react';
 import { CountryContext } from '../context/CountryContext';
 import { CountryDetails } from '../components/CountryDetails';
-import { Loading } from '../components/Loading';
+import { LoadingCountryDetail } from '../components/LoadingCountryDetail';
 
 export const CountryDetailsPage = () => {
   const { countries } = use(CountryContext);
   const { name } = useParams();
   const { formattedCountryName } = useFormattedCountryName();
 
-  if (!countries.length) return <Loading />;
+  if (!countries.length) return <LoadingCountryDetail />;
 
   const hasExistCountry = countries.find(
     (country) =>

@@ -4,7 +4,7 @@ import { LoadingTableRow } from './LoadingTableRow';
 export const Loading = () => {
   return (
     <section>
-      <article className="flex flex-col">
+      <article className="flex flex-col lg:w-[60vw]">
         <div className="flex  justify-center items-center">
           <span className="w-28 pb-5 pl-4 mr-12">
             <Skeleton height={15} width={80} count={1} className="skeleton" />
@@ -38,7 +38,7 @@ export const Loading = () => {
           <span className="min-w-16 pb-5 pl-4">
             <Skeleton height={20} width={100} count={1} className="skeleton" />
           </span>
-          <span className="min-w-32 pb-5 pl-4">
+          <span className="min-w-32 pb-5 pl-6">
             <Skeleton height={20} width={100} count={1} className="skeleton" />
           </span>
         </div>
