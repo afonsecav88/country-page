@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { useGetNeightbouringCountries } from '../hooks/useGetNeightbouringCountries';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { useNavigate } from 'react-router-dom';
+import { useFormattedCountryName } from '../hooks/useFormattedName';
 
 type CountryDetailsProps = {
   country: CountriesInfo;
 };
 
 export const CountryDetails = ({ country }: CountryDetailsProps) => {
+  const navigate = useNavigate();
+  const { formattedCountryName } = useFormattedCountryName();
   const {
     flags,
     name,
@@ -25,7 +29,7 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
 
   useEffect(() => {
     getNeightbouringCountries(borders);
-  }, []);
+  }, [country]);
 
   return (
     <section
@@ -99,8 +103,15 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
         </div>
         <div className="flex justify-start pl-10 sm:px-6 sm:py-2 gap-4 flex-wrap">
           {neightbouringCountries.map((neighbouring) => (
-            <div
+            <button
               key={neighbouring?.name.common}
+              onClick={() =>
+                navigate(
+                  `/countries/country-details/${formattedCountryName(
+                    neighbouring?.name.common!
+                  )}`
+                )
+              }
               className="flex flex-col flex-wrap">
               <img
                 src={neighbouring?.flags.svg}
@@ -110,7 +121,7 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
               <p className="text-xs font-semibold pt-2">
                 {neighbouring?.name.common}
               </p>
-            </div>
+            </button>
           ))}
         </div>
       </div>
