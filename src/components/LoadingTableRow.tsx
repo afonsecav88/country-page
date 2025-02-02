@@ -9,7 +9,7 @@ export const LoadingTableRow = () => {
       <span className="md:w-56 pb-5">
         <Skeleton height={20} width={100} count={1} className="skeleton" />
       </span>
-      <span className="min-w-52 pb-5">
+      <span className="min-w-32 pb-5">
         <Skeleton height={20} width={100} count={1} className="skeleton" />
       </span>
       <span className="min-w-16 pb-5 pl-4">

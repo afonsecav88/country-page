@@ -9,7 +9,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 export const CountryList = () => {
   const { isLoadingCountries } = use(CountryContext);
 
-  if (isLoadingCountries) return <Loading />;
+  if (!isLoadingCountries) return <Loading />;
 
   return (
     <div>
