@@ -1,40 +1,8 @@
-import { FC, use, useEffect, useState } from 'react';
-import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
-import { CountryContext } from '../context/CountryContext';
+import { FC } from 'react';
+import { useSearchByFilter } from '../hooks/useSearchByFilter';
 
 export const SearchByFilter: FC = () => {
-  const { countries, setCountries, setCurrentPage } = use(CountryContext);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const [originalCountries, setOriginalCountries] = useState<CountriesInfo[]>(
-    []
-  );
-
-  useEffect(() => {
-    setOriginalCountries(countries || []);
-  }, []);
-
-  const filterCountriesBySearchTerm = (term: string) => {
-    if (!term.length) {
-      setCountries(originalCountries);
-      return;
-    }
-
-    const filtered = originalCountries.filter(
-      (country) =>
-        country.name.common.toLowerCase().includes(term.toLowerCase().trim()) ||
-        country.region.toLowerCase().includes(term.toLowerCase().trim()) ||
-        country.subregion.toLowerCase().includes(term.toLowerCase().trim())
-    );
-    setCountries(filtered);
-    setCurrentPage(1);
-  };
-
-  const handleOnChangeSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const term = e.target.value;
-    setSearchTerm(term);
-    filterCountriesBySearchTerm(term);
-  };
+  const { searchTerm, handleOnChangeSearchTerm } = useSearchByFilter();
 
   return (
     <input

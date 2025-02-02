@@ -1,8 +1,9 @@
-import { JSX, useState } from 'react';
+import { JSX, useEffect, useState } from 'react';
 
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
 import { CountryContext } from './CountryContext';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
+import { useGetCountries } from '../hooks/useGetCountries';
 
 type CountryProviderChildren = {
   children: JSX.Element | JSX.Element[];
@@ -11,7 +12,6 @@ type CountryProviderChildren = {
 export const CountryProvider = ({ children }: CountryProviderChildren) => {
   const [isLoadingCountries, setIsLoadingCountries] = useState(false);
   const [countries, setCountries] = useState<CountriesInfo[]>([]);
-
   const { paginatedCountries, currentPage, lastPage, setCurrentPage } =
     usePaginateCountries(countries);
 
