@@ -1,4 +1,4 @@
-import { use, useState, useEffect } from 'react';
+import { use, useState, useEffect, FC } from 'react';
 import {
   SelectRegions,
   CountriesInfo,
@@ -6,7 +6,7 @@ import {
 import { countriesRegions } from '../mocks/countriesRegions';
 import { CountryContext } from '../context/CountryContext';
 
-export const RegionTags = () => {
+export const RegionTags: FC = () => {
   const { countries, setCountries, setCurrentPage } = use(CountryContext);
   const [selectedRegions, setSelectedRegions] = useState<SelectRegions[]>([]);
   const [countriesByRegions, setCountriesByRegions] = useState<CountriesInfo[]>(

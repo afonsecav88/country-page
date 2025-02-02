@@ -1,7 +1,7 @@
-import { use } from 'react';
+import { FC, use } from 'react';
 import { CountryContext } from '../context/CountryContext';
 
-export const PaginateButtons = () => {
+export const PaginateButtons: FC = () => {
   const { currentPage, setCurrentPage, lastPage } = use(CountryContext);
 
   const handleClickPreview = () => {

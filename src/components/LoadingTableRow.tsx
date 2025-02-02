@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-export const LoadingTableRow = () => {
+export const LoadingTableRow: FC = () => {
   return (
     <div className="flex justify-center items-center">
       <span className="w-28 pb-5 pl-4 mr-12">

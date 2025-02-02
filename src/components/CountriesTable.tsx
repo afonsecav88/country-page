@@ -1,9 +1,9 @@
-import { use } from 'react';
+import { FC, use } from 'react';
 import { CountryContext } from '../context/CountryContext';
 import { useNavigate } from 'react-router-dom';
 import { useFormattedCountryName } from '../hooks/useFormattedName';
 
-export const CountriesTable = () => {
+export const CountriesTable: FC = () => {
   const { paginatedCountries } = use(CountryContext);
   const { formattedCountryName } = useFormattedCountryName();
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-export const LoadingCountryDetail = () => {
+export const LoadingCountryDetail: FC = () => {
   return (
     <div
       className="grid grid-flow-col grid-rows-[20vw_minmax(20rem,auto)] md:grid-rows-[4vw_minmax(auto,auto)] gap-5  sm:pt-6 bg-[#1C1D1F] text-[#D2D5DA] w-full md:w-[70vw] lg-w-[56.5vw] max-w-[45rem] h-auto min-h-[90vh] absolute top-52 rounded-lg

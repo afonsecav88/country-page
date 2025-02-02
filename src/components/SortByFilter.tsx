@@ -1,9 +1,9 @@
-import { use } from 'react';
+import { FC, use } from 'react';
 import { SortByFilterType } from '../interfaces/CountriesInfo.interface';
 import { useSortByCountries } from '../hooks/useSortByCountries';
 import { CountryContext } from '../context/CountryContext';
 
-export const SortByFilter = () => {
+export const SortByFilter: FC = () => {
   const { countries, setCountries, setCurrentPage } = use(CountryContext);
   const { sortByCountries } = useSortByCountries();
 

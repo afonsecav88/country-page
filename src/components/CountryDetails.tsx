@@ -1,15 +1,14 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useGetNeightbouringCountries } from '../hooks/useGetNeightbouringCountries';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 import { useNavigate } from 'react-router-dom';
 import { useFormattedCountryName } from '../hooks/useFormattedName';
-import { LoadingCountryDetail } from './LoadingCountryDetail';
 
 type CountryDetailsProps = {
   country: CountriesInfo;
 };
 
-export const CountryDetails = ({ country }: CountryDetailsProps) => {
+export const CountryDetails: FC<CountryDetailsProps> = ({ country }) => {
   const navigate = useNavigate();
   const { formattedCountryName } = useFormattedCountryName();
   const {

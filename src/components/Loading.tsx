@@ -1,7 +1,8 @@
 import Skeleton from 'react-loading-skeleton';
 import { LoadingTableRow } from './LoadingTableRow';
+import { FC } from 'react';
 
-export const Loading = () => {
+export const Loading: FC = () => {
   return (
     <section>
       <article className="flex flex-col lg:w-[60vw]">

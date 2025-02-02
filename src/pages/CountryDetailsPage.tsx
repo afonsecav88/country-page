@@ -1,11 +1,11 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useFormattedCountryName } from '../hooks/useFormattedName';
-import { use } from 'react';
+import { FC, use } from 'react';
 import { CountryContext } from '../context/CountryContext';
 import { CountryDetails } from '../components/CountryDetails';
 import { LoadingCountryDetail } from '../components/LoadingCountryDetail';
 
-export const CountryDetailsPage = () => {
+export const CountryDetailsPage: FC = () => {
   const { countries } = use(CountryContext);
   const { name } = useParams();
   const { formattedCountryName } = useFormattedCountryName();

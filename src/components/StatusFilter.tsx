@@ -1,8 +1,8 @@
-import { use, useEffect, useState } from 'react';
+import { FC, use, useEffect, useState } from 'react';
 import { CountryContext } from '../context/CountryContext';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
 
-export const StatusFilter = () => {
+export const StatusFilter: FC = () => {
   const { countries, setCountries } = use(CountryContext);
   const [checkMember, setCheckMember] = useState(false);
   const [checkIndependent, setCheckIndependent] = useState(false);

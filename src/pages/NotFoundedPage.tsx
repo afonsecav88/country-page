@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const NotFoundedPage = () => {
+export const NotFoundedPage: FC = () => {
   const navigate = useNavigate();
   return (
     <div className="text-[#D2D5DA]">
