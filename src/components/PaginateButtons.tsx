@@ -1,6 +1,5 @@
 import { FC, use } from 'react';
 import { CountryContext } from '../context/CountryContext';
-import next from '../assets/Expand_down.svg';
 
 export const PaginateButtons: FC = () => {
   const { currentPage, setCurrentPage, lastPage } = use(CountryContext);
@@ -22,7 +21,11 @@ export const PaginateButtons: FC = () => {
             : 'cursor-pointer hover:bg-[#4E80EE]'
         }`}
         onClick={handleClickPreview}>
-        <img src={next} alt="preview" className="rotate-90 w-5 mr-1" />
+        <img
+          src="/Expand_down.svg"
+          alt="preview"
+          className="rotate-90 w-5 mr-1 "
+        />
         Preview Page
       </button>
       <p className="px-4 text-base w-12 ">{currentPage}</p>
@@ -34,7 +37,12 @@ export const PaginateButtons: FC = () => {
         }`}
         disabled={currentPage === lastPage}
         onClick={handleClickNext}>
-        Next Page <img src={next} alt="next" className="-rotate-90 w-5 ml-1" />
+        Next Page{' '}
+        <img
+          src="/Expand_down.svg"
+          alt="next"
+          className="-rotate-90 w-5 ml-1"
+        />
       </button>
     </span>
   );
