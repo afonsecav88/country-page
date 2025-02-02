@@ -1,9 +1,8 @@
-import { JSX, useEffect, useState } from 'react';
+import { JSX, useState } from 'react';
 
 import { usePaginateCountries } from '../hooks/usePaginateCountries';
 import { CountryContext } from './CountryContext';
 import { CountriesInfo } from '../interfaces/CountriesInfo.interface';
-import { useGetCountries } from '../hooks/useGetCountries';
 
 type CountryProviderChildren = {
   children: JSX.Element | JSX.Element[];
